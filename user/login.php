@@ -2,21 +2,25 @@
     session_start();
     include('config.php');
     if(isset($_POST['dangnhap'])){
+      // if($_POST['user_id']!='' && $_POST['password']!=''){
+      //   echo '<script>alert("vui lòng nhập đầy đủ thông tin")</script>';
+      //   echo "<script>window.location.href='login.php';</script>";
+      // }else{
         $taikhoan = $_POST['user_id'];
         $matkhau = $_POST['password'];
         $matkhau = md5($matkhau);
         $sql = "SELECT * FROM user WHERE username= '".$taikhoan."' AND password= '".$matkhau."' LIMIT 1";
         $row=mysqli_query($conn,$sql);
-
         $count = mysqli_num_rows($row);
-        if($count>0){
-            $_SESSION['dangnhap']=$taikhoan;
-            header("Location:index1.php");
+        if($count==0){
+          echo '<script>alert("Tên tài khoản hoặc mật khẩu không đúng")</script>';
+          echo "<script>window.location.href='login.php';</script>";
+          die();
+        }else{
+          $_SESSION['dangnhap']=$taikhoan;
+          header("Location:index1.php");
         }
-        else{
-            echo '<script>alert("Mã sinh viên hoặc Mật khẩu không đúng. Vui lòng nhập lại");</script>';
-            header("Location:login.php");
-        }
+      //}
     }
 ?>
 
@@ -64,10 +68,10 @@
 <body>
     <main>
     <center>
-      <img class="responsive-img" style="width: 350px; height: 90px; margin-top: 20px;" src="images/logo-noi-that-2.png" />
+      <!-- <img class="responsive-img" style="width: 250px;" src="images/logo-thuvien_hauii.png" /> -->
       <div class="section"></div>
 
-      
+      <h5 class="indigo-text">Đăng nhập</h5>
       <div class="section"></div>
 
       <div class="container">

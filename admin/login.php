@@ -17,7 +17,7 @@
             echo "<script>window.location.href='login.php';</script>";
             die();
         }else{
-          $_SESSION['dangnhap']=$taikhoan;
+          $_SESSION['dangnhap1']=$taikhoan;
           header("Location:index.php");
               
         }

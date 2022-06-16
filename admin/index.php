@@ -3,7 +3,7 @@
 session_start();
  
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION['dangnhap'])){
+if(!isset($_SESSION['dangnhap1'])){
   //header("Location:index.php");
       //echo '<script>alert("Bạn phải đăng nhập!")</script>';
       echo "<script>window.location.href='login.php';</script>";

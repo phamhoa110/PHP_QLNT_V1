@@ -7,7 +7,7 @@ session_start();
  
 // // Destroy the session.
 // session_destroy();
-unset($_SESSION['dangnhap']);
+unset($_SESSION['dangnhap1']);
 // Redirect to login page
 header("location: login.php");
 exit;

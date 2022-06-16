@@ -149,8 +149,8 @@
 
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='text' name='dateofbirth'/>
-                <label for='dateofbirth'>Ngày sinh</label>
+                <input class='validate' type='date' name='dateofbirth'/>
+               
               </div>
             </div>
             

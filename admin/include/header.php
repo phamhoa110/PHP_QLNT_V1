@@ -187,47 +187,20 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="add_author.php" class="nav-link">
+                <a href="manage_admin.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Thêm tác giả</p>
+                  <p>Quản lý admin</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="manage_author.php" class="nav-link">
+                <a href="manage_user.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý tác giả</p>
+                  <p>Quản lý user</p>
                 </a>
               </li>
             </ul>
           </li>
-          <!-- <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Thống kê
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Thống kê danh mục</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Thống kê đầu sách</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Thống kê lượt mượn</p>
-                </a>
-              </li>
-          </li> -->
+        
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

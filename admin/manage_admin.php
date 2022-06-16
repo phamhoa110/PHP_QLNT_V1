@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>HaUI Library | Quản lý user</title>
+          <title>HaUI Library | Quản lý admin</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -80,7 +80,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Quản lý user</h1>
+            <h1 class="m-0">Quản lý admin</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -92,18 +92,16 @@
     </div>
     <section class="content">
         <div class="container">
-        <!-- <div class="buttons">
-                <a href="add_author.php" ><button class="btn-primary">Thêm tác giả</button></a>
-        </div> -->
+        <div class="buttons">
+                <a href="add_admin.php" ><button class="btn-primary">Thêm admin</button></a>
+        </div>
           <table class="table table-bordered mt-3 .bg-light">
             <thead>
                 <tr>
                   <th style="width:5%">STT</th>
+                  <th>Adminname</th>
+                  <th>Password</th>
                   <th>Họ tên</th>
-                  <th>Ngày sinh</th>
-                  <th>Giới tính</th>
-                  <th>Email</th>
-                  <th>Số điện thoại</th>
                 </tr>
             </thead>
             <tbody>
@@ -120,8 +118,8 @@
                 $rowsPerPage = 4;
                 $perRow = $page*$rowsPerPage-$rowsPerPage;
 
-                $query=mysqli_query($conn,"SELECT * FROM user LIMIT $perRow, $rowsPerPage");
-                $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM user"));
+                $query=mysqli_query($conn,"SELECT * FROM admin LIMIT $perRow, $rowsPerPage");
+                $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM admin"));
                 $totalPages = ceil($totalRows/$rowsPerPage);
                 $listPage = "";
                 for($i = 1;$i<=$totalPages;$i++){
@@ -136,13 +134,11 @@
             ?>
             <tr>
                 <td><?php echo $n++ ?></td>
+                <td><?php echo $row['username']; ?></td>
+                <td><?php echo $row['password']; ?></td>
                 <td><?php echo $row['fullname']; ?></td>
-                <td><?php echo $row['dateofbirth']; ?></td>
-                <td><?php echo $row['sex']; ?></td>
-                <td><?php echo $row['email']; ?></td>
-                <td><?php echo $row['phonenumber']; ?></td>
-                <!-- <td width="14%;"><a href="edit_author.php?id=" class="btn btn-primary btn-sml" >Sửa</a> -->
-               <td><a href="delete_user.php?id=<?php echo $row['id']; ?>"class="btn btn-danger btn-sml" onclick="return confirm('Xóa?');">Xóa</a></td>
+                <td width="14%;"><a href="edit_admin.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sml" >Sửa</a> 
+               <a href="delete_admin.php?id=<?php echo $row['id']; ?>"class="btn btn-danger btn-sml" onclick="return confirm('Xóa?');">Xóa</a></td>
             </tr>
         <?php } ?>
             </tbody>

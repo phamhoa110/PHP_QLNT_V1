@@ -1,176 +1,126 @@
-<?php
-// Initialize the session
-session_start();
- 
-// Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: index.php");
-    exit;
-}
- 
-// Include config file
-require_once "config.php";
- 
-// Define variables and initialize with empty values
-$username = $password = "";
-$username_err = $password_err = $login_err = "";
- 
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Check if username is empty
-    if(empty(trim($_POST["username"]))){
-        $username_err = "Nhập tên tài khoản.";
-    } else{
-        $username = trim($_POST["username"]);
-    }
-    
-    // Check if password is empty
-    if(empty(trim($_POST["password"]))){
-        $password_err = "Nhập mật khẩu.";
-    } else{
-        $password = trim($_POST["password"]);
-    }
-    
-    // Validate credentials
-    if(empty($username_err) && empty($password_err)){
-        // Prepare a select statement
-        $sql = "SELECT id, username, password FROM admin WHERE username = ?";
-        
-        if($stmt = mysqli_prepare($conn, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
-            // Set parameters
-            $param_username = $username;
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Store result
-                mysqli_stmt_store_result($stmt);
-                
-                // Check if username exists, if yes then verify password
-                if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
-                    if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
-                            // Password is correct, so start a new session
-                            session_start();
-                            
-                            // Store data in session variables
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
-                            
-                            // Redirect user to welcome page
-                            header("location: index.php");
-                        } else{
-                            // Password is not valid, display a generic error message
-                            $login_err = "Tài khoản hoặc mật khẩu không đúng.";
-                        }
-                    }
-                } else{
-                    // Username doesn't exist, display a generic error message
-                    $login_err = "Tài khoản hoặc mật khẩu không đúng.";
-                }
-            } else{
-                echo "Có lỗi xảy ra!.";
-            }
 
-            // Close statement
-            mysqli_stmt_close($stmt);
+
+<?php
+    session_start();
+    include('configQLNT.php');
+    if(isset($_POST['dangnhap'])){
+        $taikhoan = $_POST['user_id'];
+        $matkhau = $_POST['password'];
+        //$matkhau = md5($matkhau);
+        $sql = "SELECT * FROM admin WHERE username= '".$taikhoan."' AND password= '".$matkhau."' LIMIT 1";
+        $row=mysqli_query($conn,$sql);
+
+        $count = mysqli_num_rows($row);
+        if($count==0){
+            
+            echo '<script>alert("Tên tài khoản hoặc mật khẩu không đúng")</script>';
+            echo "<script>window.location.href='login.php';</script>";
+            die();
+        }else{
+          $_SESSION['dangnhap']=$taikhoan;
+          header("Location:index.php");
+              
         }
+        
+        
     }
-    
-    // Close connection
-    mysqli_close($conn);
-}
 ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HaUI Library | Login </title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    main {
+      flex: 1 0 auto;
+    }
+
+    body {
+      background: #fff;
+    }
+    .indigo-text{
+        color: #10b571 !important;
+    }
+    .indigo{
+        background-color: #17c77e !important;
+    }
+    .input-field input[type=date]:focus + label,
+    .input-field input[type=text]:focus + label,
+    .input-field input[type=email]:focus + label,
+    .input-field input[type=password]:focus + label {
+      color: #17c77e;
+    }
+
+    .input-field input[type=date]:focus,
+    .input-field input[type=text]:focus,
+    .input-field input[type=email]:focus,
+    .input-field input[type=password]:focus {
+      border-bottom: 2px solid #17c77e;
+      box-shadow: none;
+    }
+  </style>
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
-    <div class="card-header text-center">
-      <a href="#" class="h1"><b>HaUI</b>Library</a>
-    </div>
-    <div class="card-body">
-      <p class="login-box-msg">Đăng nhập hệ thống thư viện</p>
-      <?php 
-        if(!empty($login_err)){
-            echo '<div class="alert alert-danger">' . $login_err . '</div>';
-        }        
-        ?>
-      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div class="input-group mb-3">
-          <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" placeholder="Tài khoản">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
+
+<body>
+    <main>
+    <center>
+      
+      <div class="section"></div>
+
+      <h5 class="indigo-text">Đăng nhập admin</h5>
+      <div class="section"></div>
+
+      <div class="container">
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+          <form action="" autocomplete="off" class="col s12" method="POST">
+            <div class='row'>
+              <div class='col s12'>
+              </div>
             </div>
-          </div>
-          <span class="invalid-feedback"><?php echo $username_err; ?></span>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" placeholder="Mật khẩu">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input class='validate' type='text' name='user_id' id='user_id' />
+                <label for='user_id'>Tên đăng nhập</label>
+              </div>
             </div>
-          </div>
-          <span class="invalid-feedback"><?php echo $password_err; ?></span>
-        </div>
-        <div class="row">
-          <div class="col-6 mt-2">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Nhớ tài khoản
+            
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input class='validate' type='password' name='password' id='password' />
+                <label for='password'>Mật khẩu</label>
+              </div>
+              <label style='float: right;'>
+                <!-- <a class='pink-text' style="color: #17c77e !important;" href='#!'><b>Quên mật khẩu</b></a> -->
               </label>
             </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-6 mt-2">
-            <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
-          </div>
-          <!-- /.col -->
+
+            <br />
+            <center>
+              <div class='row'>
+                <button type='submit' name='dangnhap' class='col s12 btn btn-large waves-effect indigo'>Đăng nhập</button>
+              </div>
+            </center>
+          </form>
         </div>
-      </form>
+      </div>
+      <!-- <a href="register.php">Đăng ký</a> -->
+    </center>
 
+    <div class="section"></div>
+    <div class="section"></div>
+  </main>
 
-      <!--p class="mb-1 mt-5">
-        <a href="forgot_password.php">Quên mật khẩu</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.php" class="text-center">Đăng kí tài khoản</a>
-      </p>
-    </div-->
-    <!-- /.card-body -->
-  </div>
-  <!-- /.card -->
-</div>
-<!-- /.login-box -->
-
-
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
+
 </html>

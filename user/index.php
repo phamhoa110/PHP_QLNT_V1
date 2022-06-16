@@ -41,11 +41,8 @@
 						<div id="tg-bestsellingbooksslider" class="tg-bestsellingbooksslider tg-bestsellingbooks owl-carousel">
 
 							<?php
-							// $sql = "SELECT book.image,book_name,author_name,nganh_name,book_id
-							// FROM author inner join book on book.author_id =author.author_id 
-							// inner join category on book.nganh_id = category.nganh_id ";
-							$sql="SELECT *
-							 FROM sanpham ";
+							
+							$sql="SELECT * FROM sanpham ";
 
 							$result = mysqli_query($conn,$sql);
 							while ($row = mysqli_fetch_array($result)) {
@@ -88,7 +85,7 @@
 										</figure>
 										<div class="tg-postbookcontent">
 											<ul class="tg-bookscategories">
-												<li><a href="javascript:void(0);"><?php echo $row['TenDM'] ?></a></li>
+												<li><a href="javascript:void(0);"><?php echo $row['TenSP'] ?></a></li>
 											</ul>
 											<div class="tg-booktitle">
 												<h3><a href="productdetail.php?quanly=sach&book_id=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>

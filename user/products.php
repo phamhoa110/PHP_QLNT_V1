@@ -1,6 +1,6 @@
 <?php
 require 'config.php';
-include("header1.php");
+include("header.php");
 $sql_danhmuc = "SELECT * FROM danhmuc  ORDER BY MaDM DESC";
 $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
 ?>

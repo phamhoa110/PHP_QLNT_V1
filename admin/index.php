@@ -3,9 +3,10 @@
 session_start();
  
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
+if(!isset($_SESSION['dangnhap'])){
+  //header("Location:index.php");
+      //echo '<script>alert("Bạn phải đăng nhập!")</script>';
+      echo "<script>window.location.href='login.php';</script>";
 }
 ?>
 
@@ -144,7 +145,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               <div class="icon">
                 <i class="ion ion-person-stalker"></i>
               </div>
-              <a href="manage_author.php" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="manage_user.php" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

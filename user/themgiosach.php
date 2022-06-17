@@ -24,8 +24,8 @@ if (isset($_GET['xoatatca']) && $_GET['xoatatca'] == 1) {
 //them
 if (isset($_POST['themgiosach'])) {
 
-    $id = $_GET['MaSP'];
-    $soluong = (isset($_GET['soluong'])) ? $_GET['soluong'] : 1;
+    $id = $_POST['MaSP'];
+    $soluong = (isset($_POST['soluong'])) ? $_POST['soluong'] : 1;
     $sql = "SELECT * FROM sanpham WHERE MaSP = '" . $id . "' LIMIT 1";
     $querry = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($querry);

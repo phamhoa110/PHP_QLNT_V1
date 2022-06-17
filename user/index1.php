@@ -51,7 +51,7 @@ $sql_count = "SELECT COUNT(*) FROM sanpham ;"
 
 								<div class="item">
 
-									<form action="themgiosach.php?MaSP=<?php echo $row['MaSP'] ?>" method="POST">
+									<form action="themgiosach.php" method="POST">
 										<div class="tg-postbook">
 											<figure class="tg-featureimg">
 												<div class="tg-bookimg">
@@ -74,6 +74,7 @@ $sql_count = "SELECT COUNT(*) FROM sanpham ;"
 														<input type="number" name="soluong" id="soluong" value="1">
 													</li>
 												</ul>
+												<input type="hidden" name="MaSP" id="" value="<?= $row['MaSP']?>">
 												<div class="tg-booktitle">
 													<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
 												</div>
@@ -231,7 +232,6 @@ $sql_count = "SELECT COUNT(*) FROM sanpham ;"
 	<!--************************************
 					Collection Count End
 			*************************************-->
-	<?php include("favorite_products.php") ?>
 	<!--************************************
 					Testimonials Start
 			*************************************-->

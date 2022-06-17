@@ -33,13 +33,7 @@ include("header1.php");
                     <div class="row">
                         <div id="tg-twocolumns" class="tg-twocolumns">
 
-
-
-                            <?php
-                            include("tuongtac.php")
-                            ?>
-                            </aside>
-                        </div> -->
+                        </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 

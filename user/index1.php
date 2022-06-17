@@ -140,7 +140,7 @@
 	<!--************************************
 					Collection Count Start
 			*************************************-->
-	<section class="tg-parallax tg-bgcollectioncount tg-haslayout" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bg_5.jpg">
+	<section class="tg-parallax tg-bgcollectioncount tg-haslayout" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bg_2.jpg">
 		<div class="tg-sectionspace tg-collectioncount tg-haslayout">
 			<div class="container">
 				<div class="row">
@@ -150,9 +150,9 @@
 								<i class="icon-envelope"></i>
 							</div>
 							<div class="tg-titlepluscounter">
-								<h2>Bàn ghế</h2>
+								<h2>Kệ và giá</h2>
 								<?php
-									$sql_BanGhe = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Bàn ghế';";
+									$sql_BanGhe = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Kệ và giá';";
 									$banghe = mysqli_fetch_assoc(mysqli_query($conn, $sql_BanGhe));
 								?>
 								<h3 data-from="0" data-to="<?= $banghe['SoSanPham']?>" data-speed="1000" data-refresh-interval="50">
@@ -168,8 +168,17 @@
 								<i class="icon-envelope"></i>
 							</div>
 							<div class="tg-titlepluscounter">
-								<h2>Giường</h2>
-								<h3 data-from="0" data-to="7" data-speed="1000" data-refresh-interval="50">7</h3>
+								<h2>Tủ</h2>
+								<?php
+									$sql_Tu = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Tủ';";
+									$tu = mysqli_fetch_assoc(mysqli_query($conn, $sql_Tu));
+								?>
+								<h3 data-from="0" data-to="<?= $tu['SoSanPham']?>" data-speed="1000" data-refresh-interval="50">
+									<?php
+										
+										echo $tu['SoSanPham'];
+									?>
+								</h3>
 							</div>
 						</div>
 						<div class="tg-collectioncounter tg-romance">
@@ -177,8 +186,17 @@
 								<i class="icon-envelope"></i>
 							</div>
 							<div class="tg-titlepluscounter">
-								<h2>Tủ</h2>
-								<h3 data-from="0" data-to="6" data-speed="1000" data-refresh-interval="50">6</h3>
+								<h2>Bàn</h2>
+								<?php
+									$sql_ban = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Bàn';";
+									$ban = mysqli_fetch_assoc(mysqli_query($conn, $sql_ban));
+								?>
+								<h3 data-from="0" data-to="<?= $ban['SoSanPham']?>" data-speed="1000" data-refresh-interval="50">
+									<?php
+										
+										echo $ban['SoSanPham'];
+									?>
+								</h3>
 							</div>
 						</div>
 						<div class="tg-collectioncounter tg-fashion">
@@ -186,8 +204,35 @@
 								<i class="icon-envelope"></i>
 							</div>
 							<div class="tg-titlepluscounter">
-								<h2>Kệ</h2>
-								<h3 data-from="0" data-to="7" data-speed="1000" data-refresh-interval="50">7</h3>
+								<h2>Ghế</h2>
+								<?php
+									$sql_Ghe = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Ghế';";
+									$ghe = mysqli_fetch_assoc(mysqli_query($conn, $sql_Ghe));
+								?>
+								<h3 data-from="0" data-to="<?= $ghe['SoSanPham']?>" data-speed="1000" data-refresh-interval="50">
+									<?php
+										
+										echo $ghe['SoSanPham'];
+									?>
+								</h3>
+							</div>
+						</div>
+						<div class="tg-collectioncounter tg-fashion">
+							<div class="tg-collectioncountericon">
+								<i class="icon-envelope"></i>
+							</div>
+							<div class="tg-titlepluscounter">
+								<h2>Gương</h2>
+								<?php
+									$sql_Guong = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Gương';";
+									$guong = mysqli_fetch_assoc(mysqli_query($conn, $sql_Guong));
+								?>
+								<h3 data-from="0" data-to="<?= $guong['SoSanPham']?>" data-speed="1000" data-refresh-interval="50">
+									<?php
+										
+										echo $guong['SoSanPham'];
+									?>
+								</h3>
 							</div>
 						</div>
 					</div>
@@ -203,40 +248,7 @@
 					Testimonials Start
 			*************************************-->
 	<section class="tg-parallax tg-bgtestimonials tg-haslayout" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bg_6.jpg">
-		<!-- <div class="tg-sectionspace tg-haslayout">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-lg-push-2">
-						<div id="tg-testimonialsslider" class="tg-testimonialsslider tg-testimonials owl-carousel">
-							<div class="item tg-testimonial">
-								<figure><img src="images/author/giamdoc.jpg" alt="image description"></figure>
-								<blockquote><q>Giám đốc Đặng Quang Thạch đã cho thấy bức tranh toàn cảnh của Thư viện và nhấn mạnh sự đổi thay của Thư viện Trường ĐH Công nghiệp Hà Nội chuyển mình từ thư viện truyền thống sang thư viện hiện đại, ứng dụng các thành tựu của khoa học công nghệ mới, đặc biệt là công nghệ thông tin và truyền thông để phát huy vai trò là nơi cung cấp thông tin.</q></blockquote>
-								<div class="tg-testimonialauthor">
-									<h3>Ths. Đặng Quang Thạch</h3>
-									<span>Giám đốc trung tâm</span>
-								</div>
-							</div>
-							<div class="item tg-testimonial">
-								<figure><img src="images/author/phogiamdoc.jpg" alt="image description"></figure>
-								<blockquote><q>Phương pháp học tập là yếu tố then chốt để biến quá trình đào tạo thành quá trình tự đào tạo, trong đó thói quen đọc sách đóng một vai trò quan trọng. Để giúp các em hình thành được thói quen tự học thông qua việc đọc sách, nghiên cứu tài liệu là những lời phát biểu của ThS. Nguyễn Minh Tân – Phó Giám đốc Trung tâm về “Vai trò của đọc sách với hoạt động học tập và nghiên cứu của sinh viên”.</q></blockquote>
-								<div class="tg-testimonialauthor">
-									<h3>Ths. Nguyễn Minh Tân</h3>
-									<span>Phó Giám đốc trung tâm</span>
-								</div>
-							</div>
-							<div class="item tg-testimonial">
-								<figure><img src="images/author/phogiamdoc2.jpg" alt="image description"></figure>
-								<blockquote><q>Nhằm tăng cường tương tác, cũng như hỗ trợ sinh viên khai thác nguồn tài nguyên của Thư viện, Thư viện ĐH Công nghiệp Hà Nội đã thành lập các kênh truyền thông: Website, Zalo OA, Facebook và Youtube. Các kênh truyền thông của Thư viện đã được giới thiệu bởi TS. Ngô Đức Vĩnh - Phó Giám đốc trung tâm. TS. Ngô Đức Vĩnh nhấn mạnh sự đồng hành của Thư viện ĐH Công nghiệp Hà Nội với sinh viên trên con đường khám phá, chiếm lĩnh kiến thức.</q></blockquote>
-								<div class="tg-testimonialauthor">
-									<h3>TS.Ngô Đức Vĩnh</h3>
-									<span>Phó Giám đốc trung tâm</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> -->
+		
 	</section>
 	<!--************************************
 					Testimonials End

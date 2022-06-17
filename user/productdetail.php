@@ -52,18 +52,21 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 										<?php
 										while ($row = mysqli_fetch_array($query_chitiet)) {
 										?>
+										<form action="themgiosach.php?MaSP=<?php echo $row['MaSP'] ?>" method="POST">
 											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-												<form action="themgiosach.php?MaSP=<?php echo $row['MaSP'] ?>" method="POST">
+												
 												<div class="tg-postbook">
 													<figure class="tg-featureimg"><img src="images\books\<?=$row['Anh']?>" alt="image description"></figure>
 													<div class="tg-postbookcontent">
 														<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
 															<button type="submit" class="themgiosach" name="themgiosach"><i class="fa fa-shopping-basket"></i>
 															<em>Thêm vào giỏ</em></button>
+
 														</a>
 													</div>
+
 												</div>
-											</form>
+											
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 												<div class="tg-productcontent">
@@ -77,6 +80,7 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 													<div class="tg-booktitle">
 														<h3>Giá: <?php echo $row['DonGia'] ?></h3>
 													</div>
+													<input type="number" name="soluong" value="1">
 													<span class="tg-bookwriter">Kích thước: <a href="javascript:void(0);"><?php echo $row['KichThuoc'] ?></a></span>
 													<span class="tg-bookwriter">Màu sắc:
 													<select name="mausac" class="form-control" style="width: 300px;">
@@ -116,6 +120,7 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 													</div>
 												</div>
 											</div>
+										</form>
 										<?php } ?>
 										
 									</div>

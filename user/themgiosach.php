@@ -25,6 +25,7 @@ if(isset($_GET['xoatatca']) && $_GET['xoatatca']==1){
 if(isset($_POST['themgiosach'])){
     //session_destroy();
     $id = $_GET['MaSP'];
+    $soluong =(isset($_GET['soluong'])) ? $_GET['soluong'] : 1;
     $sql = "SELECT * FROM sanpham WHERE MaSP = '".$id."' LIMIT 1";
     $querry = mysqli_query($conn,$sql);
     $row= mysqli_fetch_array($querry);
@@ -70,7 +71,7 @@ if(isset($_POST['themgiosach'])){
             $cart[$id]['soluong']++;
         }
         else{//chưa có sp trong giỏ
-            $cart[$id] = array('TenSP'=>$row['TenSP'],'Anh'=>$row['Anh'],'MaSP'=>$id,'soluong'=>1,'DonGia'=>$row['DonGia'],'MaSP'=>$row['MaSP']);
+            $cart[$id] = array('TenSP'=>$row['TenSP'],'Anh'=>$row['Anh'],'MaSP'=>$id,'soluong'=>$soluong,'DonGia'=>$row['DonGia'],'MaSP'=>$row['MaSP']);
         }
         //cập nhật lại giỏ hàng
          $_SESSION['cart'] = $cart;

@@ -40,22 +40,13 @@
         <img class="animation__shake" src="dist/img/logo.png" alt="Logo" height="60" width="60">
       </div-->
       <?php 
-      require 'configQLNT.php';
-        $fullname = "";
-        $adminname = "";
-        $password = "";
-        // $sdt = "";
-        // $mail = "";
-        // $anh ="";
-        
-
+        require 'configQLNT.php';
+        // $fullname = "";
+        // $adminname = "";
+        // $password = "";
         //Lấy giá trị POST từ form vừa submit
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // if(isset($_POST["fullname"])) { $fullname = $_POST['fullname']; }
-            // if(isset($_POST["adminname"])) { $username = $_POST['adminname']; }
-            // if(isset($_POST["password"])) { $password = $_POST['password']; }
-            // if(isset($_POST["sdt"])) { $sdt = $_POST['sdt']; }
-            // if(isset($_POST["email"])) { $mail = $_POST['email']; }
+          if(isset($_POST['btnSubmit'])  && $_POST['adminname']!='' && $_POST['password']!='' && $_POST['fullname']!=''){
             $fullname = $_POST['fullname'];
             $username = $_POST['adminname']; 
             $password = $_POST['password']; 
@@ -72,11 +63,13 @@
             if (mysqli_query($conn, $sql)) {
                 echo '<script>alert("Thêm thành công")</script>';
                 echo "<script>window.location.href='manage_admin.php';</script>";
-                //header('location: manage_admin.php');
-                
             } 
+          }
+          else{
+            echo '<script>alert("Vui lòng nhập đầy đủ thông tin")</script>';
+            echo "<script>window.location.href='add_admin.php';</script>";
+          }
         }
-
        ?>
 
 

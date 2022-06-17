@@ -8,7 +8,14 @@
 		<!--************************************
 				Header Start
 		*************************************-->
-		<?php include("header.php") ?>
+		<?php 
+			if(!isset($_SESSION['dangnhap'])){
+				include("header1.php");
+			}
+			else{
+				include("header.php");
+			}
+		?>
 		<!--************************************
 				Header End
 		*************************************-->

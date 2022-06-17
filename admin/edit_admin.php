@@ -57,7 +57,7 @@
     <section class="content">
       <div class="container"> 
 		    <form method="POST" class="form-group" enctype="multipart/form-data">
-        <label class="mt-3">adminname</label>
+        <label class="mt-3">admin's nname</label>
           <input class="form-control ms-5" name="username" value="<?php echo $row['username']; ?>">
 
           <label class="mt-3">Password</label>
@@ -82,26 +82,35 @@
         //       echo "<script>window.location.href='manage_admin.php';</script>";
         //     }
         //   }
+        // && $_POST['username']!='' && $_POST['password']!='' && $_POST['adminname']!=''
         if(isset($_POST['return'])){
-            echo "<script>window.location.href='manage_admin.php';</script>";
+          echo "<script>window.location.href='manage_admin.php';</script>";
         }
-          if(isset($_POST['update_admin'])){
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $name = $_POST['adminname'];
-            $sql = "SELECT * FROM admin WHERE username = '$username'";
-            $old = mysqli_query($conn, $sql);
-            if(mysqli_num_rows($old)>0){
-                echo '<script>alert("adminname đã tồn tại!")</script>';
-                //echo "<script>window.location.href='edit_admin.php';</script>";
-                die();
-            }
-            $sql = "UPDATE admin SET fullname='$name', password='$password', username='$username' WHERE id='$id'";
-            if (mysqli_query($conn, $sql)) {
-                //echo '<script>alert("Sửa thành công\nMời bạn quay lại trang quản lý để xem chi tiết")</script>';
-                echo "<script>window.location.href='manage_admin.php';</script>";
-            }
+        if(isset($_POST['update_admin'])){
+          $username = $_POST['username'];
+          $password = $_POST['password'];
+          $name = $_POST['adminname'];
+          $sql = "SELECT * FROM admin WHERE username = '$username'";
+          $old = mysqli_query($conn, $sql);
+          if($_POST['username']=='' || $_POST['password']=='' || $_POST['adminname']==''){
+            echo '<script>alert("Vui lòng nhập đầy đủ thông tin")</script>';
+            die();
           }
+          if(mysqli_num_rows($old)>0){
+              echo '<script>alert("adminname đã tồn tại!")</script>';
+              //echo "<script>window.location.href='edit_admin.php';</script>";
+              die();
+          }
+          $sql = "UPDATE admin SET fullname='$name', password='$password', username='$username' WHERE id='$id'";
+          if (mysqli_query($conn, $sql)) {
+              //echo '<script>alert("Sửa thành công\nMời bạn quay lại trang quản lý để xem chi tiết")</script>';
+              echo "<script>window.location.href='manage_admin.php';</script>";
+          }
+        }
+        // else{
+        //   echo '<script>alert("Vui lòng nhập đầy đủ thông tin")</script>';
+        //   //echo "<script>window.location.href='edit_admin.php';</script>";
+        // }
         ?>
 	</section>
 </div>

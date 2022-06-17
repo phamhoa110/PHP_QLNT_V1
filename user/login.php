@@ -68,7 +68,7 @@ if (isset($_POST['dangnhap'])) {
 <body>
   <main>
     <center>
-      <!-- <img class="responsive-img" style="width: 250px;" src="images/logo-thuvien_hauii.png" /> -->
+      
       <div class="section"></div>
 
       <h5 class="indigo-text">Đăng nhập</h5>

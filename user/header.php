@@ -39,7 +39,7 @@ $query_dm = mysqli_query($conn, $sql_dm);
 	</div>
 
 	</div>
-	</div> -->
+	</div>
 	<div class="tg-middlecontainer">
 		<div class="container">
 			<div class="row">

@@ -1,12 +1,8 @@
 <?php
-//require 'config1.php';
+
 require 'config.php';
 include("header1.php");
-// if(!isset($_SESSION['dangnhap'])){
-// 	header("Location:login.php");
-// }
 
-//$sql_count = "SELECT COUNT(*) FROM sanpham WHERE  = 'Nam'";
 ?>
 
 <!doctype html>

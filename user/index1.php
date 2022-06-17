@@ -1,9 +1,8 @@
 <?php
-//require 'config1.php';
 require 'config.php';
 include("header1.php");
 if (!isset($_SESSION['dangnhap'])) {
-	//header("Location:index.php");
+	
 	echo "<script>window.location.href='login.php';</script>";
 }
 
@@ -42,9 +41,7 @@ $sql_count = "SELECT COUNT(*) FROM sanpham ;"
 						<div id="tg-bestsellingbooksslider" class="tg-bestsellingbooksslider tg-bestsellingbooks owl-carousel">
 
 							<?php
-							// $sql = "SELECT book.image,book_name,author_name,nganh_name,book_id
-							// FROM author inner join book on book.author_id =author.author_id 
-							// inner join category on book.nganh_id = category.nganh_id ";
+							
 							$sql = "SELECT *FROM sanpham ";
 
 

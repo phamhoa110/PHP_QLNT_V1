@@ -26,13 +26,12 @@ $query_dm = mysqli_query($conn, $sql_dm);
 	<link rel="stylesheet" href="css/responsive.css">
 </head>
 <header id="tg-header" class="tg-header tg-haslayout">
-	<?php if (isset($_SESSION['dangnhap']))
-		echo $_SESSION['dangnhap'] ?> </a>
+	
 	</div>
 	</div>
 
 	</div>
-	</div> -->
+	</div>
 	<div class="tg-middlecontainer">
 		<div class="container">
 			<div class="row">

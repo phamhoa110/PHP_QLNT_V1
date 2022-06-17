@@ -156,10 +156,12 @@
                 $tonghang = $row['dongia']*$row['soluong'];
                 $tong += $tonghang;
               } 
-                
-                echo $tong;
               ?>
 
+              <tr>
+                <td colspan="4" align="right"><b>Tổng doanh thu: </b></td>
+                <td> <?=$tong?></td>
+              </tr>
               
             </tbody>
 

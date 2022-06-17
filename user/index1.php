@@ -74,7 +74,7 @@ $sql_count = "SELECT COUNT(*) FROM sanpham ;"
 											<div class="tg-postbookcontent">
 												<ul class="tg-bookscategories">
 													<li>
-													<input type="number" name="soluong" id="soluong" value="1">
+														<input type="number" name="soluong" id="soluong" value="1">
 													</li>
 												</ul>
 												<div class="tg-booktitle">

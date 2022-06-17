@@ -29,33 +29,27 @@ $query_dm = mysqli_query($conn, $sql_dm);
 	<link rel="stylesheet" href="css/responsive.css">
 </head>
 <header id="tg-header" class="tg-header tg-haslayout">
-	<!-- <div class="tg-topbar">
-		<div class="container">
-			<div class="tg-userlogin">
-				<figure><a href="javascript:void(0);"><img src="images/users/img-02.jpg" alt="image description"></a></figure>
-				<span>Chào, Chiến</span>
-				<div>
-					<a class="tg-userlogout" href="index.php?dangxuat=1">Đăng xuất:
-					<?php 
-					if(isset($_SESSION['dangnhap'])) 
-						echo $_SESSION['dangnhap'] 
-					?> 
-					</a>
-				</div>
-			</div>
 
-		</div>
+	<?php
+	if (isset($_SESSION['dangnhap']))
+		echo $_SESSION['dangnhap']
+	?>
+	</a>
+	</div>
+	</div>
+
+	</div>
 	</div> -->
 	<div class="tg-middlecontainer">
 		<div class="container">
 			<div class="row">
-			<div style="float: right; margin-bottom: -5px; font-size: 20px; background-color: white;">
-						<a href="login.php">
-							<button type="button">Đăng nhập</button>
-						</a>
-					</div>
+				<div style="float: right; margin-bottom: -5px; font-size: 20px; background-color: white;">
+					<a href="login.php">
+						<button type="button">Đăng nhập</button>
+					</a>
+				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					
+
 
 					<strong class="tg-logo">
 						<a href="index.php">
@@ -66,45 +60,47 @@ $query_dm = mysqli_query($conn, $sql_dm);
 
 						<div class="dropdown tg-themedropdown tg-minicartdropdown">
 							<a href="javascript:void(0);" id="tg-minicart" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<?php 
-									$sl=0;
-									if (isset($_SESSION['cart'])) {
-										foreach ($_SESSION['cart'] as $cart_item) {
-											$sl++;
-									?>
-									
-								<span class="tg-themebadge"><?php echo $sl ?></span>
+								<?php
+								$sl = 0;
+								if (isset($_SESSION['cart'])) {
+									foreach ($_SESSION['cart'] as $cart_item) {
+										$sl++;
+								?>
 
-									<?php } }?>
+										<span class="tg-themebadge"><?php echo $sl ?></span>
+
+								<?php }
+								} ?>
 
 								<i class="icon-cart"></i>
 							</a>
-							
-									
+
+
 							<div class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-minicart">
 								<div class="tg-minicartbody">
-									<?php 
+									<?php
 									if (isset($_SESSION['cart'])) {
 										foreach ($_SESSION['cart'] as $cart_item) {
 											$sl++;
 									?>
-									<div class="tg-minicarproduct">
-										<figure>
-											<img src=" images/books/<?php echo $cart_item['Anh'] ?>" alt="image description">
-										</figure>
-										<div class="tg-minicarproductdata">
-											<h5><a href=""><?php echo $cart_item['TenSP'] ?></a></h5>
-											
-										</div>
-									</div>
-									
-									<?php } }?>
-									
+											<div class="tg-minicarproduct">
+												<figure>
+													<img src=" images/books/<?php echo $cart_item['Anh'] ?>" alt="image description">
+												</figure>
+												<div class="tg-minicarproductdata">
+													<h5><a href=""><?php echo $cart_item['TenSP'] ?></a></h5>
+
+												</div>
+											</div>
+
+									<?php }
+									} ?>
+
 								</div>
 								<div class="tg-minicartfoot">
 									<a class="tg-btnemptycart" href="javascript:void(0);">
 										<i class="fa fa-trash-o"></i>
-										<span > <a href="themgiosach.php?xoatatca=1">Xóa tất cả</a> </span>
+										<span> <a href="themgiosach.php?xoatatca=1">Xóa tất cả</a> </span>
 									</a>
 									<div class="tg-btns">
 										<a class="tg-btn tg-active" href="giosach.php">Xem giỏ hàng</a>
@@ -149,9 +145,9 @@ $query_dm = mysqli_query($conn, $sql_dm);
 											<?php } ?>
 
 										</ul>
-										
+
 								</li>
-								
+
 
 								<li><a href="products.php">Sản phẩm</a></li>
 								<li><a href="contactus.php">Liên hệ</a></li>

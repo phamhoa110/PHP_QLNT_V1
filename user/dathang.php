@@ -42,4 +42,3 @@ if (!empty($_SESSION['dangnhap'])) {
  } else {
     echo '<script>alert("Bạn chưa đăng nhập!")</script>';
  }
-?>

@@ -15,7 +15,7 @@ include("header1.php");
 				Inner Banner Start
 		*************************************-->
         <div class="tg-innerbanner tg-haslayout tg-parallax tg-bginnerbanner" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bg_6.jpg">
-            
+
         </div>
         <!--************************************
 				Inner Banner End
@@ -33,111 +33,94 @@ include("header1.php");
                     <div class="row">
                         <div id="tg-twocolumns" class="tg-twocolumns">
 
-                            <!-- <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-left">
-                                <aside id="tg-sidebar" class="tg-sidebar">
 
-                                    <div class="tg-widget tg-widgetsearch">
-                                        <form action="products.php?quanly=timkiem" class="tg-formtheme tg-formsearch " method="GET">
-                                            <div class="form-group">
 
-                                                <input type="text" name="search" class="form-group" placeholder="Tìm kiếm sách...">
-                                                <button type="submit"><i class="icon-magnifier"></i></button>
-                                            </div>
-                                        </form>
-                                    </div>
+                            <?php
+                            include("tuongtac.php")
+                            ?>
+                            </aside>
+                        </div> -->
 
-                                    <?php 
-                                    //include("tuongtac.php") 
-                                    ?>
-                                </aside>
-                            </div> -->
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <?php
-                                if (isset($_SESSION['cart'])) {
-                                    // echo '<pre>';
-                                    // print_r($_SESSION['cart']);
-                                    // echo '</pre>';
-                                }
-                                ?>
-                                <div>
-                                    <form action="" autocomplete="off" method="POST">
-                                        <table class="styled-table">
-                                            <thead>
+                            <div>
+                                <form action="" autocomplete="off" method="POST">
+                                    <table class="styled-table">
+                                        <thead>
 
-                                                <tr>
-                                                    <th>STT</th>
-                                                    <th>Mã sản phẩm</th>
-                                                    <th>Tên sản phẩm</th>
-                                                    <th>Hình ảnh</th>
-                                                    <th>Số lượng</th>
-                                                    <th>Đơn giá</th>
-                                                    <th>Tổng tiền</th>
-                                                    <th>Quản lý</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                if (isset($_SESSION['cart'])) {
-                                                    $stt = 0;
-                                                    $sl = 0;
-                                                    foreach ($_SESSION['cart'] as $cart_item) {
-                                                        $stt++;
-                                                        $sl++;
-                                                        //if ($sl <= 3) {
-                                                ?>
-                                                        <tr class="active-row">
-                                                            <td> <?php echo $stt ?> </td>
-                                                            <td> <?php echo $cart_item['MaSP'] ?> </td>
-                                                            <td> <?php echo $cart_item['TenSP'] ?> </td>
-                                                            <td> <img src=" images/books/<?=$cart_item['Anh']?>" alt="image description"> </td>
-                                                            <td><?php echo $cart_item['soluong'] ?>
-                                                            </td>
-                                                            <td><?php echo $cart_item['DonGia'] ?></td>
-                                                            <td><?php echo $cart_item['DonGia']*
-                                                            $cart_item['soluong'] ?></td>
-                                                            <td><a href="themgiosach.php?xoa=<?php echo $cart_item['MaSP'] ?>">Xóa </a></td>
-                                                        </tr>
-
-                                                    <?php
-                                                        // } else {
-                                                        //         echo 'Mỗi sinh viên chỉ được mượn tối đa 5 quyển sách';
-                                                        //         break;
-                                                    }
-                                                    //}
-                                                    ?>
-                                                <?php
-                                                } else { ?>
-                                                    <tr>
-                                                        <td colspan="6">
-                                                            <h5 style="color: red;">Hiện tại giỏ sách trống</h5>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Mã sản phẩm</th>
+                                                <th>Tên sản phẩm</th>
+                                                <th>Hình ảnh</th>
+                                                <th>Số lượng</th>
+                                                <th>Đơn giá</th>
+                                                <th>Tổng tiền</th>
+                                                <th>Quản lý</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            if (isset($_SESSION['cart'])) {
+                                                $stt = 0;
+                                                $sl = 0;
+                                                foreach ($_SESSION['cart'] as $cart_item) {
+                                                    $stt++;
+                                                    $sl++;
+                                                    //if ($sl <= 3) {
+                                            ?>
+                                                    <tr class="active-row">
+                                                        <td> <?php echo $stt ?> </td>
+                                                        <td> <?php echo $cart_item['MaSP'] ?> </td>
+                                                        <td> <?php echo $cart_item['TenSP'] ?> </td>
+                                                        <td> <img src=" images/books/<?= $cart_item['Anh'] ?>" alt="image description"> </td>
+                                                        <td><?php echo $cart_item['soluong'] ?>
                                                         </td>
+                                                        <td><?php echo $cart_item['DonGia'] ?></td>
+                                                        <td><?php echo $cart_item['DonGia'] *
+                                                                $cart_item['soluong'] ?></td>
+                                                        <td><a href="themgiosach.php?xoa=<?php echo $cart_item['MaSP'] ?>">Xóa </a></td>
                                                     </tr>
-                                                <?php } ?>
-                                                <tr class="active-row">
-                                                    <td colspan="6" ><span style="font-size: 18px;">Tổng tiền</span></td>
-                                                    <td>
-                                                        <?php
-                                                       if(isset($_SESSION['cart'])){
-                                                        $cart = $_SESSION['cart'];
-                                                        $tong=0;
-                                                        foreach($cart as $k=>$v){
-                                                            $tong+=$v['soluong']*$v['DonGia'];
-                                                        }
-                                                        echo $tong;
-                                                        }
-                                                        ?>
+
+                                                <?php
+                                                    // } else {
+                                                    //         echo 'Mỗi sinh viên chỉ được mượn tối đa 5 quyển sách';
+                                                    //         break;
+                                                }
+                                                //}
+                                                ?>
+                                            <?php
+                                            } else { ?>
+                                                <tr>
+                                                    <td colspan="6">
+                                                        <h5 style="color: red;">Hiện tại giỏ sách trống</h5>
                                                     </td>
                                                 </tr>
-                                                <td colspan="6">
-                                                    <a class="delete" href="themgiosach.php?xoatatca=1">XÓA TẤT CẢ</a>
+                                            <?php } ?>
+                                            <tr class="active-row">
+                                                <td colspan="6"><span style="font-size: 18px;">Tổng tiền</span></td>
+                                                <td>
+                                                    <?php
+                                                    if (isset($_SESSION['cart'])) {
+                                                        $cart = $_SESSION['cart'];
+                                                        $tong = 0;
+                                                        foreach ($cart as $k => $v) {
+                                                            $tong += $v['soluong'] * $v['DonGia'];
+                                                        }
+                                                        echo $tong;
+                                                    }
+                                                    ?>
                                                 </td>
-                                            </tbody>
-                                        </table>
+                                            </tr>
+                                            <td colspan="6">
+                                                <a class="delete" href="themgiosach.php?xoatatca=1">XÓA TẤT CẢ</a>
+                                            </td>
+                                        </tbody>
+                                    </table>
 
-                                        <div class="form-group">
+                                    <div class="form-group">
 
-                                            <!-- <li class="list-group-item active">Nhập thông tin sinh viên </li>
+                                        <!-- <li class="list-group-item active">Nhập thông tin sinh viên </li>
                                             <div class="form-group">
                                                 <label for="user_id">Mã sinh viên <span style="color: red;">*</span> </label>
                                                 <div>
@@ -185,28 +168,28 @@ include("header1.php");
                                                         <?php echo isset($error['days']) ? $error['days'] : ''; ?></div>
                                                 </div>
                                             </div> -->
-                                           
-                                        </div>
-                                    </form>
-                                    <a  href="dathang.php"> <input type="submit" name="borrow" class="borrow" value="Đặt hàng"></a>
-                                    <a href="index1.php"><input type="submit" class="borrow"  value="Mua tiếp"></a>
-                                    <a href="danhsachdh.php"><input type="submit" class="borrow"  value="Xem đơn đặt hàng"></a>
-                                </div>
-                            </div>
 
+                                    </div>
+                                </form>
+                                <a href="dathang.php"> <input type="submit" name="borrow" class="borrow" value="Đặt hàng"></a>
+                                <a href="index1.php"><input type="submit" class="borrow" value="Mua tiếp"></a>
+                                <a href="danhsachdh.php"><input type="submit" class="borrow" value="Xem đơn đặt hàng"></a>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
-            <!--************************************
+    </div>
+    <!--************************************
 					News Grid End
 			*************************************-->
-        </main>
-        <!--************************************
+    </main>
+    <!--************************************
 				Main End
 		*************************************-->
 
-        <?php include("footer.php") ?>
+    <?php include("footer.php") ?>
     </div>
     <!--************************************
 			Wrapper End

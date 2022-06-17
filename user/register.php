@@ -1,10 +1,11 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
@@ -22,16 +23,19 @@
     body {
       background: #fff;
     }
-    .indigo-text{
-        color: #10b571 !important;
+
+    .indigo-text {
+      color: #10b571 !important;
     }
-    .indigo{
-        background-color: #17c77e !important;
+
+    .indigo {
+      background-color: #17c77e !important;
     }
-    .input-field input[type=date]:focus + label,
-    .input-field input[type=text]:focus + label,
-    .input-field input[type=email]:focus + label,
-    .input-field input[type=password]:focus + label {
+
+    .input-field input[type=date]:focus+label,
+    .input-field input[type=text]:focus+label,
+    .input-field input[type=email]:focus+label,
+    .input-field input[type=password]:focus+label {
       color: #17c77e;
     }
 
@@ -45,64 +49,17 @@
   </style>
 </head>
 
-<!-- <body>
-    <h3>Đăng ký thành viên</h3>
-    <p>
-        <?php
-            if(isset($_SESSION["thongbao"])){
-                echo $_SESSION["thongbao"];
-                //session_unset("thongbao");
-                unset($_SESSION["thongbao"]);
-            }
-        ?>
-    </p>
-    <form action="register_submit.php" method="POSt">
-        <table>
-            <tr>
-                <td>Tên đăng nhập</td>
-                <td><input type="text" name="username"></td>
-            </tr>
-            <tr>
-                <td>Mật khẩu</td>
-                <td><input type="password" name="password"></td>
-            </tr>
-            <tr>
-                <td>Nhập lại mật khẩu</td>
-                <td><input type="password" name="repassword"></td>
-            </tr>
-            <tr>
-                <td>Tên đầy đủ</td>
-                <td><input type="text" name="fullname"></td>
-            </tr>
-            <tr>
-                <td>Ngày sinh</td>
-                <td><input type="date" name="dateofbirth"></td>
-            </tr>
-            <tr>
-                <td>Giới tính</td>
-                <td>
-                    <select name="sex">
-                        <option value="nam">Nam</option>
-                        <option value="nữ">Nữ</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="text" name="email"></td>
-            </tr><tr>
-                <td>Số điện thoại</td>
-                <td><input type="text" name="phonenumber"></td>
-            </tr>
-            <tr>
-                <td><button type="submit" name="submit">Đăng ký</button></td>
-                <td><button type="reset" name="reset">Làm mới</button></td>
-            </tr>
-        </table>
-    </form>
-</body> -->
+
+<?php
+if (isset($_SESSION["thongbao"])) {
+  echo $_SESSION["thongbao"];
+
+  unset($_SESSION["thongbao"]);
+}
+?>
+
 <body>
-<main>
+  <main>
     <center>
       <img class="responsive-img" style="width: 350px; height: 90px; margin-top: 20px;" src="images/logo-noi-that-2.png" />
       <div class="section"></div>
@@ -121,56 +78,56 @@
 
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='text' name='username'/>
+                <input class='validate' type='text' name='username' />
                 <label for='username'>Tên đăng nhập</label>
               </div>
             </div>
-            
+
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='password' name='password'/>
+                <input class='validate' type='password' name='password' />
                 <label for='password'>Mật khẩu</label>
               </div>
             </div>
 
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='password' name='repassword'/>
+                <input class='validate' type='password' name='repassword' />
                 <label for='repassword'>Xác nhận mật khẩu</label>
               </div>
             </div>
 
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='text' name='fullname'/>
+                <input class='validate' type='text' name='fullname' />
                 <label for='fullname'>Tên đầy đủ</label>
               </div>
             </div>
 
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='date' name='dateofbirth'/>
-               
+                <input class='validate' type='date' name='dateofbirth' />
+
               </div>
             </div>
-            
+
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='text' name='sex'/>
+                <input class='validate' type='text' name='sex' />
                 <label for='sex'>Giới tính</label>
               </div>
             </div>
-            
+
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='text' name='email'/>
+                <input class='validate' type='text' name='email' />
                 <label for='email'>Email</label>
               </div>
             </div>
-            
+
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='text' name='phonenumber'/>
+                <input class='validate' type='text' name='phonenumber' />
                 <label for='phonenumber'>Số điện thoại</label>
               </div>
             </div>
@@ -183,13 +140,13 @@
                 <div>
                   <a href="index.php" style="color: red;" class="btn btn-warning">Hủy</a>
                 </div>
-                
+
               </div>
             </center>
           </form>
         </div>
       </div>
-      
+
     </center>
 
     <div class="section"></div>
@@ -200,6 +157,5 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
+
 </html>
-
-

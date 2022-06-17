@@ -1,16 +1,16 @@
-<?php 
+<?php
 
-	include("config.php");
-	if (isset($_GET['search']) && !empty($_GET['search'])) {
-		$key = $_GET['search'];
-		echo $key;
-		$sql_pro = "SELECT TenDM , Anh ,TenSP, DonGia from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM
+include("config.php");
+if (isset($_GET['search']) && !empty($_GET['search'])) {
+	$key = $_GET['search'];
+	echo $key;
+	$sql_pro = "SELECT TenDM , Anh ,TenSP, DonGia from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM
 		WHERE UPPER(sanpham.TenSP) LIKE UPPER('%$key%') ";
-	}
+}
 
 
-	$query_tk =  mysqli_query($conn,$sql_pro);
-	
+$query_tk =  mysqli_query($conn, $sql_pro);
+
 
 ?>
 
@@ -18,21 +18,21 @@
 	<div id="tg-content" class="tg-content">
 		<div class="tg-products">
 			<div class="tg-sectionhead">
-				<h2>Từ khóa tìm kiếm : <?php if(isset($_GET['search']) ) echo $_GET['search']?> </h2>
+				<h2>Từ khóa tìm kiếm : <?php if (isset($_GET['search'])) echo $_GET['search'] ?> </h2>
 			</div>
 
 			<div class="tg-productgrid">
-				
+
 				<?php
 				$check = mysqli_fetch_array($query_tk);
-				
-				if(empty($check) ){
-					?>
-						<script>
-							alert("Ko co san pham");
-						</script>
-					<?php
-					
+
+				if (empty($check)) {
+				?>
+					<script>
+						alert("Ko co san pham");
+					</script>
+				<?php
+
 				}
 
 				while ($row = mysqli_fetch_array($query_tk)) {

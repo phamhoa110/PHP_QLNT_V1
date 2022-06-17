@@ -1,30 +1,27 @@
 <?php
-    session_start();
-    include('config.php');
-    if(isset($_POST['dangnhap'])){
-      // if($_POST['user_id']!='' && $_POST['password']!=''){
-      //   echo '<script>alert("vui lòng nhập đầy đủ thông tin")</script>';
-      //   echo "<script>window.location.href='login.php';</script>";
-      // }else{
-        $taikhoan = $_POST['user_id'];
-        $matkhau = $_POST['password'];
-        $matkhau = md5($matkhau);
-        $sql = "SELECT * FROM user WHERE username= '".$taikhoan."' AND password= '".$matkhau."' LIMIT 1";
-        $row=mysqli_query($conn,$sql);
-        $count = mysqli_num_rows($row);
-        if($count==0){
-          echo '<script>alert("Tên tài khoản hoặc mật khẩu không đúng")</script>';
-          echo "<script>window.location.href='login.php';</script>";
-          die();
-        }else{
-          $_SESSION['dangnhap']=$taikhoan;
-          header("Location:index1.php");
-        }
-      //}
-    }
+session_start();
+include('config.php');
+if (isset($_POST['dangnhap'])) {
+
+  $taikhoan = $_POST['user_id'];
+  $matkhau = $_POST['password'];
+  $matkhau = md5($matkhau);
+  $sql = "SELECT * FROM user WHERE username= '" . $taikhoan . "' AND password= '" . $matkhau . "' LIMIT 1";
+  $row = mysqli_query($conn, $sql);
+  $count = mysqli_num_rows($row);
+  if ($count == 0) {
+    echo '<script>alert("Tên tài khoản hoặc mật khẩu không đúng")</script>';
+    echo "<script>window.location.href='login.php';</script>";
+    die();
+  } else {
+    $_SESSION['dangnhap'] = $taikhoan;
+    header("Location:index1.php");
+  }
+}
 ?>
 
 <html>
+
 <head>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
@@ -42,16 +39,19 @@
     body {
       background: #fff;
     }
-    .indigo-text{
-        color: #10b571 !important;
+
+    .indigo-text {
+      color: #10b571 !important;
     }
-    .indigo{
-        background-color: #17c77e !important;
+
+    .indigo {
+      background-color: #17c77e !important;
     }
-    .input-field input[type=date]:focus + label,
-    .input-field input[type=text]:focus + label,
-    .input-field input[type=email]:focus + label,
-    .input-field input[type=password]:focus + label {
+
+    .input-field input[type=date]:focus+label,
+    .input-field input[type=text]:focus+label,
+    .input-field input[type=email]:focus+label,
+    .input-field input[type=password]:focus+label {
       color: #17c77e;
     }
 
@@ -66,7 +66,7 @@
 </head>
 
 <body>
-    <main>
+  <main>
     <center>
       <!-- <img class="responsive-img" style="width: 250px;" src="images/logo-thuvien_hauii.png" /> -->
       <div class="section"></div>
@@ -89,7 +89,7 @@
                 <label for='user_id'>Tên đăng nhập</label>
               </div>
             </div>
-            
+
             <div class='row'>
               <div class='input-field col s12'>
                 <input class='validate' type='password' name='password' id='password' />

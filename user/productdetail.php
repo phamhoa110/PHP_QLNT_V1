@@ -1,8 +1,8 @@
 <?php
 include("header1.php");
 // $sql_chitiet  = "SELECT book.image,book_name,nganh_name,author_name,descrip FROM category,book,author WHERE category.nganh_id = book.nganh_id AND book.author_id = author.author_id AND book.book_id = '$_GET[book_id]'  LIMIT 1";
-$id=$_GET['MaSP'];
-$sql_chitiet="SELECT *  FROM sanpham INNER JOIN danhmuc on sanpham.MaDM=danhmuc.MaDM WHERE sanpham.MaSP=$id";
+$id = $_GET['MaSP'];
+$sql_chitiet = "SELECT *  FROM sanpham INNER JOIN danhmuc on sanpham.MaDM=danhmuc.MaDM WHERE sanpham.MaSP=$id";
 $query_chitiet = mysqli_query($conn, $sql_chitiet);
 ?>
 
@@ -11,26 +11,12 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 
 
 <body>
-<!--************************************
+	<!--************************************
 				Inner Banner Start
 		*************************************-->
-		<div class="tg-innerbanner tg-haslayout tg-parallax tg-bginnerbanner" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bgparallax-07.jpg">
-			<!-- <div class="container">
-				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<div class="tg-innerbannercontent">
-							<h1>Sách</h1>
-							<ol class="tg-breadcrumb">
-								<li><a href="index.php">Trang chủ</a></li>
-								<li class="tg-active"> <a href="products.php">Sách</a></li>
-								<li class="tg-active"> <a href="#">Chi tiết sách</a></li>
-							</ol>
-						</div>
-					</div>
-				</div>
-			</div> -->
-		</div>
-		<!--************************************
+	<div class="tg-innerbanner tg-haslayout tg-parallax tg-bginnerbanner" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bgparallax-07.jpg">
+	</div>
+	<!--************************************
 				Inner Banner End
 		*************************************-->
 
@@ -52,82 +38,81 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 										<?php
 										while ($row = mysqli_fetch_array($query_chitiet)) {
 										?>
-										<form action="themgiosach.php?MaSP=<?php echo $row['MaSP'] ?>" method="POST">
-											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-												
-												<div class="tg-postbook">
-													<figure class="tg-featureimg"><img src="images\books\<?=$row['Anh']?>" alt="image description"></figure>
-													<div class="tg-postbookcontent">
-														<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
-															<button type="submit" class="themgiosach" name="themgiosach"><i class="fa fa-shopping-basket"></i>
-															<em>Thêm vào giỏ</em></button>
+											<form action="themgiosach.php?MaSP=<?php echo $row['MaSP'] ?>" method="POST">
+												<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 
-														</a>
+													<div class="tg-postbook">
+														<figure class="tg-featureimg"><img src="images\books\<?= $row['Anh'] ?>" alt="image description"></figure>
+														<div class="tg-postbookcontent">
+															<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
+																<button type="submit" class="themgiosach" name="themgiosach"><i class="fa fa-shopping-basket"></i>
+																	<em>Thêm vào giỏ</em></button>
+
+															</a>
+														</div>
+
 													</div>
 
 												</div>
-											
-											</div>
-											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-												<div class="tg-productcontent">
+												<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+													<div class="tg-productcontent">
 
-													<ul class="tg-bookscategories">
-														<li><a href="javascript:void(0);"><?php echo $row['TenSP'] ?></a></li>
-													</ul>
-													<div class="tg-booktitle">
-														<h3>Danh mục: <?php echo $row['TenDM'] ?></h3>
-													</div>
-													<div class="tg-booktitle">
-														<h3>Giá: <?php echo $row['DonGia'] ?></h3>
-													</div>
-													<span>Số lượng: <input type="number" name="soluong" value="1"></span>
-													<span class="tg-bookwriter">Kích thước: <a href="javascript:void(0);"><?php echo $row['KichThuoc'] ?></a></span>
-													<span class="tg-bookwriter">Màu sắc:
-													<select name="mausac" class="form-control" style="width: 300px;">
-															<option value="unselect">-------------Chọn màu sắc---------------</option>
-															<?php 
-																$sql_MauSac = "SELECT * from  mausac" ;
+														<ul class="tg-bookscategories">
+															<li><a href="javascript:void(0);"><?php echo $row['TenSP'] ?></a></li>
+														</ul>
+														<div class="tg-booktitle">
+															<h3>Danh mục: <?php echo $row['TenDM'] ?></h3>
+														</div>
+														<div class="tg-booktitle">
+															<h3>Giá: <?php echo $row['DonGia'] ?></h3>
+														</div>
+														<span>Số lượng: <input type="number" name="soluong" value="1"></span>
+														<span class="tg-bookwriter">Kích thước: <a href="javascript:void(0);"><?php echo $row['KichThuoc'] ?></a></span>
+														<span class="tg-bookwriter">Màu sắc:
+															<select name="mausac" class="form-control" style="width: 300px;">
+																<option value="unselect">-------------Chọn màu sắc---------------</option>
+																<?php
+																$sql_MauSac = "SELECT * from  mausac";
 																$query_MauSac = mysqli_query($conn, $sql_MauSac);
-																while($row_MauSac = mysqli_fetch_assoc($query_MauSac)){
-																	?>  
+																while ($row_MauSac = mysqli_fetch_assoc($query_MauSac)) {
+																?>
 																	<option <?php
-																			if($row['MaMau'] == $row_MauSac['MaMau']){
+																			if ($row['MaMau'] == $row_MauSac['MaMau']) {
 																				echo "selected";
 																			}
-																		?>
-																		value="<?=$row_MauSac['MaMau']?>"><?=$row_MauSac['TenMau']?></option>
-																	<?php 
-																} 
-															?> 
-														</select>
-													
-													</span>
-													<span class="tg-bookwriter">Trọng lượng: <a href="javascript:void(0);"><?php echo $row['TrongLuong'] ?></a></span>
-													<span class="tg-bookwriter">Chất liệu: <a href="javascript:void(0);"><?php echo $row['ChatLieu'] ?></a></span>
-													
-													<div class="tg-description">
-														<?php echo $row['ChiTiet'] ?>
-													</div>
-													<div class="tg-share">
-														<span>Share:</span>
-														<ul class="tg-socialicons">
-															<li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
-															<li class="tg-twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-															<li class="tg-linkedin"><a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a></li>
-															<li class="tg-googleplus"><a href="javascript:void(0);"><i class="fa fa-google-plus"></i></a></li>
-															<li class="tg-rss"><a href="javascript:void(0);"><i class="fa fa-rss"></i></a></li>
-														</ul>
+																			?> value="<?= $row_MauSac['MaMau'] ?>"><?= $row_MauSac['TenMau'] ?></option>
+																<?php
+																}
+																?>
+															</select>
+
+														</span>
+														<span class="tg-bookwriter">Trọng lượng: <a href="javascript:void(0);"><?php echo $row['TrongLuong'] ?></a></span>
+														<span class="tg-bookwriter">Chất liệu: <a href="javascript:void(0);"><?php echo $row['ChatLieu'] ?></a></span>
+
+														<div class="tg-description">
+															<?php echo $row['ChiTiet'] ?>
+														</div>
+														<div class="tg-share">
+															<span>Share:</span>
+															<ul class="tg-socialicons">
+																<li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
+																<li class="tg-twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
+																<li class="tg-linkedin"><a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a></li>
+																<li class="tg-googleplus"><a href="javascript:void(0);"><i class="fa fa-google-plus"></i></a></li>
+																<li class="tg-rss"><a href="javascript:void(0);"><i class="fa fa-rss"></i></a></li>
+															</ul>
+														</div>
 													</div>
 												</div>
-											</div>
-										</form>
+											</form>
 										<?php } ?>
-										
+
 									</div>
 								</div>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
@@ -140,7 +125,7 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 				Main End
 		*************************************-->
 
-		<?php include("footer.php") ?>
+	<?php include("footer.php") ?>
 	<script src="js/vendor/jquery-library.js"></script>
 	<script src="js/vendor/bootstrap.min.js"></script>
 	<script src="https://maps.google.com/maps/api/js?key=AIzaSyCR-KEWAVCn52mSdeVeTqZjtqbmVJyfSus&amp;language=en"></script>

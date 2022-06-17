@@ -21,11 +21,7 @@
 		<div class="tg-products">
 			<div class="tg-sectionhead">
 				<h2><span>Tất cả sản phẩm</span>
-					<?php
-					 if (isset($_GET['id'])) {
-						
-					 }
-					 ?> 
+					
 				</h2>
 			</div>
 

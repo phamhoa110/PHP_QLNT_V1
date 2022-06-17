@@ -7,6 +7,7 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
 
 <!doctype html>
 <html class="no-js" lang="">
+
 <body>
 
 	<div id="tg-wrapper" class="tg-wrapper tg-haslayout">
@@ -14,7 +15,7 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
 				Inner Banner Start
 		*************************************-->
 		<div class="tg-innerbanner tg-haslayout tg-parallax tg-bginnerbanner" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bg_2.jpg">
-			
+
 		</div>
 		<!--************************************
 				Inner Banner End
@@ -41,7 +42,7 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-left">
 								<aside id="tg-sidebar" class="tg-sidebar">
 
-									
+
 
 									<div class="tg-widget tg-catagories">
 										<div class="tg-widgettitle">
@@ -51,14 +52,14 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
 											<ul>
 												<?php while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) { ?>
 													<li><a href="products.php?main=book&id=<?php echo $row_danhmuc['MaDM'] ?>">
-														<?=$row_danhmuc['TenDM']?>
-													</a></li>
+															<?= $row_danhmuc['TenDM'] ?>
+														</a></li>
 												<?php } ?>
 											</ul>
 										</div>
 									</div>
 
-									<?php 
+									<?php
 									include("tuongtac.php")
 									?>
 								</aside>

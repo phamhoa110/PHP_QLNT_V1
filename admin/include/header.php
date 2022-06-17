@@ -33,7 +33,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index.php" class="brand-link bg-light" >
-      <img src="photo/abcd.png" alt="Logo" class="brand-image" style="opacity: .8">
+      <img src="photo/logo-noi-that-2.png" alt="company name here" style="width: 300px; height:90px; margin-top: -10px; padding-right:50px;">
       <br>
     </a>
 
@@ -133,29 +133,6 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-retweet"></i>
-              <p>
-                Quản lý hóa đơn
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="add_borrow.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Mượn sách</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="manage_borrow.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý mượn trả</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Quản lý đơn hàng
@@ -164,15 +141,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="add_user.php" class="nav-link">
+                <a href="thongke.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Thêm bạn đọc</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="manage_user.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý bạn đọc</p>
+                  <p>Thống kê</p>
                 </a>
               </li>
             </ul>

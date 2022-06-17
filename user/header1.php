@@ -53,16 +53,24 @@ $query_dm = mysqli_query($conn, $sql_dm);
 								?>
 									<h3 >
 										Xin chào,<?=$_SESSION['dangnhap']?>!
+										<a href="logout.php" onclick="return confirm('Đăng xuất?');">
+										<button type="button">Đăng xuất</button>
+										</a>
 									</h3>
+								<?php
+							}
+							else{
+								?>
+									<div style="margin-top: 10px;">
+										<a href="login.php">
+										<button type="button">Đăng nhập</button>
+										</a>
+									</div>
 								<?php
 							}
 						?>
 					</div>
-					<div style="margin-top: 10px;">
-						<a href="logout.php" onclick="return confirm('Đăng xuất?');">
-							<button type="button">Đăng xuất</button>
-						</a>
-					</div>
+					
 				</div>
 							
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

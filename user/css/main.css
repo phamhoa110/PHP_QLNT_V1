@@ -1844,6 +1844,7 @@ li.menu-item-has-mega-menu { position: static; }
 }
 .tg-booktitle h3 {
 	margin: 0;
+	height: 70px;
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 19px;

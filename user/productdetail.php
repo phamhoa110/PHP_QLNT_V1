@@ -1,7 +1,7 @@
 <?php
 include("header1.php");
 // $sql_chitiet  = "SELECT book.image,book_name,nganh_name,author_name,descrip FROM category,book,author WHERE category.nganh_id = book.nganh_id AND book.author_id = author.author_id AND book.book_id = '$_GET[book_id]'  LIMIT 1";
-$id=$_GET['book_id'];
+$id=$_GET['MaSP'];
 $sql_chitiet="SELECT *  FROM sanpham INNER JOIN danhmuc on sanpham.MaDM=danhmuc.MaDM WHERE sanpham.MaSP=$id";
 $query_chitiet = mysqli_query($conn, $sql_chitiet);
 ?>
@@ -53,6 +53,7 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 										while ($row = mysqli_fetch_array($query_chitiet)) {
 										?>
 											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+												<form action="themgiosach.php?MaSP=<?php echo $row['MaSP'] ?>" method="POST">
 												<div class="tg-postbook">
 													<figure class="tg-featureimg"><img src="images\books\<?=$row['Anh']?>" alt="image description"></figure>
 													<div class="tg-postbookcontent">
@@ -62,6 +63,7 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 														</a>
 													</div>
 												</div>
+											</form>
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 												<div class="tg-productcontent">

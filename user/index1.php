@@ -52,7 +52,7 @@ $sql_count = "SELECT COUNT(*) FROM sanpham ;"
 
 								<div class="item">
 
-									<form action="themgiosach.php" method="POST">
+									<form action="themgiohang.php" method="POST">
 										<div class="tg-postbook">
 											<figure class="tg-featureimg">
 												<div class="tg-bookimg">
@@ -70,16 +70,7 @@ $sql_count = "SELECT COUNT(*) FROM sanpham ;"
 
 											</figure>
 											<div class="tg-postbookcontent">
-												<ul class="tg-bookscategories">
-													<li>
-														<?php
-														$ma_dm = $row['MaDM'];
-														$sql_dm = "select * from danhmuc where MaDM = '$ma_dm'";
-														$row_dm = mysqli_fetch_assoc(mysqli_query($conn, $sql_dm));
-														echo $row_dm['TenDM'];
-														?>
-													</li>
-												</ul>
+												
 												<div class="tg-booktitle">
 													<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
 												</div>
@@ -102,20 +93,11 @@ $sql_count = "SELECT COUNT(*) FROM sanpham ;"
 
 											</figure>
 											<div class="tg-postbookcontent">
-												<ul class="tg-bookscategories">
-													<li><?php
-														$ma_dm = $row['MaDM'];
-														$sql_dm = "select * from danhmuc where MaDM = '$ma_dm'";
-														$row_dm = mysqli_fetch_assoc(mysqli_query($conn, $sql_dm));
-														echo $row_dm['TenDM'];
-														?></li>
-												</ul>
+												
 												<div class="tg-booktitle">
 													<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
 												</div>
 												<span class="tg-bookwriter"><a href="javascript:void(0);"> <?php echo $row['DonGia'] ?></a></span>
-
-
 												<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
 													<button type="submit" class="themgiosach" name="themgiosach"><i class="fa fa-shopping-basket"></i>
 														<em>Thêm vào giỏ</em></button>
@@ -134,7 +116,7 @@ $sql_count = "SELECT COUNT(*) FROM sanpham ;"
 	</section>
 
 	<?php
-	// include("new_book.php") 
+
 	?>
 	<!--************************************
 					Collection Count Start

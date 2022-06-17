@@ -31,7 +31,7 @@
 				?>
 					<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
 						<div class="tg-postbook">
-							<form action="themgiosach.php" method="POST">
+							<form action="themgiohang.php" method="POST">
 								<figure class="tg-featureimg">
 									<div class="tg-bookimg">
 										<div class="tg-frontcover"><img src="images\books\<?php echo $row['Anh'] ?>" alt="image description"></div>
@@ -41,14 +41,7 @@
 								</figure>
 								<div class="tg-postbookcontent">
 									<ul class="tg-bookscategories">
-										<li><a href="#">
-											<?php
-												$ma_dm = $row['MaDM'];
-												$sql_dm = "select * from danhmuc where MaDM = '$ma_dm'";
-												$row_dm = mysqli_fetch_assoc(mysqli_query($conn, $sql_dm));
-												echo $row_dm['TenDM'];
-											?>
-										</a></li>
+										<li></li>
 									</ul>
 									<div class="tg-booktitle">
 										<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>

@@ -23,48 +23,38 @@ $query_tk =  mysqli_query($conn, $sql_pro);
 			<div class="tg-productgrid">
 
 				<?php
-				$check = mysqli_fetch_array($query_tk);
-
-				if (empty($check)) {
-				?>
-					<script>
-						alert("Ko co san pham");
-					</script>
-				<?php
-
-				}
-
+			
 				while ($row = mysqli_fetch_array($query_tk)) {
 				?>
-				
+
 					<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
-						<form action="themgiosach.php" method="post">
-						<div class="tg-postbook">
-							<figure class="tg-featureimg">
-								<div class="tg-bookimg">
-									<div class="tg-frontcover"><img src="images\books\<?php echo $row['Anh'] ?>" alt="image description"></div>
-									<div class="tg-backcover"><img src="images\books\<?php echo $row['Anh'] ?>" alt="image description"></div>
+						<form action="themgiohang.php" method="post">
+							<div class="tg-postbook">
+								<figure class="tg-featureimg">
+									<div class="tg-bookimg">
+										<div class="tg-frontcover"><img src="images\books\<?php echo $row['Anh'] ?>" alt="image description"></div>
+										<div class="tg-backcover"><img src="images\books\<?php echo $row['Anh'] ?>" alt="image description"></div>
+									</div>
+
+								</figure>
+
+								<div class="tg-postbookcontent">
+									<ul class="tg-bookscategories">
+										<li><a href="javascript:void(0);"><?php echo $row['TenDM'] ?></a></li>
+									</ul>
+									<div class="tg-booktitle">
+										<h3><a href="productdetail.php?MaSP=<?= $row['MaSP'] ?>"> <?php echo $row['TenSP'] ?> </a></h3>
+									</div>
+									<span class="tg-bookwriter"><a href="javascript:void(0);"> <?php echo $row['DonGia'] ?></a></span>
+									<input type="number" name="soluong" value="1">
+									<input type="hidden" name="MaSP" value="<?= $row['MaSP'] ?>">
+
+									<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
+										<button type="submit" class="themgiosach" name="themgiosach"><i class="fa fa-shopping-basket"></i>
+											<em>Thêm vào giỏ</em></button>
+									</a>
 								</div>
-
-							</figure>
-
-							<div class="tg-postbookcontent">
-								<ul class="tg-bookscategories">
-									<li><a href="javascript:void(0);"><?php echo $row['TenDM'] ?></a></li>
-								</ul>
-								<div class="tg-booktitle">
-									<h3><a href="productdetail.php?MaSP=<?= $row['MaSP']?>"> <?php echo $row['TenSP'] ?> </a></h3>
-								</div>
-								<span class="tg-bookwriter"><a href="javascript:void(0);"> <?php echo $row['DonGia'] ?></a></span>
-								<input type="number" name="soluong" value="1">
-								<input type="hidden" name="MaSP" value="<?= $row['MaSP'] ?>">
-
-								<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
-									<i class="fa fa-shopping-basket"></i>
-									<em>Thêm vào giỏ</em>
-								</a>
 							</div>
-						</div>
 						</form>
 					</div>
 				<?php } ?>

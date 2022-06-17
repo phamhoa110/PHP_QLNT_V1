@@ -73,7 +73,7 @@ include("header1.php");
                                                         <td><?php echo $cart_item['DonGia'] ?></td>
                                                         <td><?php echo $cart_item['DonGia'] *
                                                                 $cart_item['soluong'] ?></td>
-                                                        <td><a href="themgiosach.php?xoa=<?php echo $cart_item['MaSP'] ?>">Xóa </a></td>
+                                                        <td><a href="themgiohang.php?xoa=<?php echo $cart_item['MaSP'] ?>">Xóa </a></td>
                                                     </tr>
 
                                                 <?php

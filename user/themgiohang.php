@@ -11,7 +11,7 @@ if(isset($_SESSION['cart']) && isset($_GET['xoa'])){
             $product[] =  array('TenSP'=>$cart_item['TenSP'],'Anh'=>$cart_item['Anh'],'soluong'=>$cart_item['soluong'],'DonGia'=>$cart_item['DonGia'],'MaSP'=>$cart_item['MaSP']);
         }
         $_SESSION['cart']=$product; 
-        header('Location:giosach.php');
+        header('Location:giohang.php');
     }
 }
 

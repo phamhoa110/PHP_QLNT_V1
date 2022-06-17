@@ -36,7 +36,7 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
 							<!-- Sách -->
 
 							<?php if (isset($_GET['search'])) include("timkiem.php");
-							else include("main/book.php");
+							else include("main/product.php");
 							?>
 
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-left">

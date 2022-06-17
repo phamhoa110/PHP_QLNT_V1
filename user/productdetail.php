@@ -36,7 +36,7 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 										<?php
 										while ($row = mysqli_fetch_array($query_chitiet)) {
 										?>
-											<form action="themgiosach.php" method="POST">
+											<form action="themgiohang.php" method="POST">
 												<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 
 													<div class="tg-postbook">

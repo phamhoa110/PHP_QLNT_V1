@@ -92,7 +92,7 @@
       <section class="content">
         <div class="container">
           <div class="buttons">
-            <a href="add_book.php"><button class="btn-primary">Thêm sản phẩm</button></a>
+            <a href="add_product.php"><button class="btn-primary">Thêm sản phẩm</button></a>
           </div>
           <table class="table table-bordered mt-3 .bg-light">
             <thead>
@@ -125,7 +125,7 @@
                 $page = 1;
               }
 
-              $rowsPerPage = 8;
+              $rowsPerPage = 4;
               $perRow = $page * $rowsPerPage - $rowsPerPage;
               $query = mysqli_query($conn, "SELECT * FROM sanpham LIMIT $perRow, $rowsPerPage");
               $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sanpham"));
@@ -188,8 +188,8 @@
                   <td><?php echo $row['ChiTiet']; ?></td>
 
 
-                  <td width="14%;"><a href="edit_book.php?id=<?php echo $row['MaSP']; ?>" class="btn btn-primary btn-sml">Sửa</a>
-                    <a href="delete_book.php?id=<?php echo $row['MaSP']; ?>" class="btn btn-danger btn-sml">Xóa</a>
+                  <td width="14%;"><a href="edit_product.php?id=<?php echo $row['MaSP']; ?>" class="btn btn-primary btn-sml">Sửa</a>
+                    <a href="delete_product.php?id=<?php echo $row['MaSP']; ?>" class="btn btn-danger btn-sml">Xóa</a>
                   </td>
                 </tr>
 

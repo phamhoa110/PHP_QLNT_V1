@@ -81,7 +81,7 @@
               
             if (mysqli_query($conn, $sql)) {
               move_uploaded_file($_FILES['anh']['tmp_name'], $target);
-                header('location: manage_book.php');
+                header('location: manage_product.php');
                 
             } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);

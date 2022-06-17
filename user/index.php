@@ -46,7 +46,7 @@ include("header1.php");
 
 								<div class="item">
 
-									<form action="themgiosach.php?MaSP=<?php echo $row['MaSP'] ?>" method="POST">
+									<form action="themgiohang.php?MaSP=<?php echo $row['MaSP'] ?>" method="POST">
 										<div class="tg-postbook">
 											<figure class="tg-featureimg">
 												<div class="tg-bookimg">
@@ -114,7 +114,6 @@ include("header1.php");
 					Featured Item End
 			*************************************-->
 	<?php
-	// include("new_book.php") 
 	?>
 	<!--************************************
 					Collection Count Start

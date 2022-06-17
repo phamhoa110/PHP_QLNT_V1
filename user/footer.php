@@ -44,7 +44,8 @@
 							<div class="tg-widgetcontent">
 								<ul>
 									<li><a href="gioithieu.html">Giới thiệu</a></li>
-									<li><a href="products.html">Sản phẩm</a></li>
+									
+									<li><a href="products.php">Sản phẩm</a></li>
 								</ul>
 							</div>
 						</div>
@@ -56,8 +57,8 @@
 							</div>
 							<div class="tg-widgetcontent">
 								<ul>
-									<li><a href="huongdandangky.html">Hướng dẫn đăng ký</a></li>
-									<li><a href="huongdangdathang.html">Hướng dẫn đặt hàng</a></li>
+									<li><a href="register.php">Hướng dẫn đăng ký</a></li>
+									
 								</ul>
 							</div>
 						</div>

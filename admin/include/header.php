@@ -95,13 +95,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="add_book.php" class="nav-link">
+                <a href="add_product.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Thêm sản phẩm</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="manage_book.php" class="nav-link">
+                <a href="manage_product.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Quản lý sản phẩm</p>
                 </a>

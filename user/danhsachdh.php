@@ -41,7 +41,7 @@ include_once("header1.php");
                                     <tr>
                                         <th>STT</th>
                                         <th>Ngày đặt</th>
-                                        <th>Giờ đặt</th>
+                                        
                                         <th>Tổng tiền</th>
                                         <th>Hoạt động</th>
                                     </tr>
@@ -64,7 +64,7 @@ include_once("header1.php");
                                         <tr class="active-row">
                                             <td><?= $count ?></td>
                                             <td><?= $row['odate'] ?></td>
-                                            <td><?= $row['otime'] ?></td>
+                                            
                                             <td><?= $row['tong'] ?></td>
                                             <td>
                                                 <a href="chitietdonhang.php?id=<?= $row['id'] ?>">Chi tiết</a>

@@ -115,7 +115,7 @@
                 else{
                     $page = 1;
                 }
-                $rowsPerPage = 4;
+                $rowsPerPage = 8;
                 $perRow = $page*$rowsPerPage-$rowsPerPage;
 
                 $query=mysqli_query($conn,"SELECT * FROM admin LIMIT $perRow, $rowsPerPage");

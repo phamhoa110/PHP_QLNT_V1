@@ -2,6 +2,7 @@
 	
 include_once("config.php");
 include("header1.php");
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 if (!empty($_SESSION['dangnhap'])) {
 	$ten=$_SESSION['dangnhap'];
                     if (!empty($_SESSION['cart'])) {
@@ -9,7 +10,7 @@ if (!empty($_SESSION['dangnhap'])) {
                             $cart_item = $_SESSION['cart'];
 	//kết nối csdl
 	
-	$odate = date('Y-m-d');
+	$odate = date("Y-m-d H:i:s");
 	$otime = date('H:i:s');
 	$total = 0;
 	$userid=$ten;

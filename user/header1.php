@@ -115,10 +115,10 @@ $query_dm = mysqli_query($conn, $sql_dm);
 								<div class="tg-minicartfoot">
 									<a class="tg-btnemptycart" href="javascript:void(0);">
 										<i class="fa fa-trash-o"></i>
-										<span> <a href="themgiosach.php?xoatatca=1">Xóa tất cả</a> </span>
+										<span> <a href="themgiohang.php?xoatatca=1">Xóa tất cả</a> </span>
 									</a>
 									<div class="tg-btns">
-										<a class="tg-btn tg-active" href="giosach.php">Xem giỏ hàng</a>
+										<a class="tg-btn tg-active" href="giohang.php">Xem giỏ hàng</a>
 									</div>
 								</div>
 							</div>

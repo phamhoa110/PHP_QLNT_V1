@@ -188,14 +188,15 @@
             }
 
             if(isset($_FILES['anh'])){
-              $file = $_FILES['anh'];
-              $file_name = $file['name'];
-              move_uploaded_file($file['tmp_name'], 'user/images/books/'.$file_name); 
+             $anh = $_POST['anh'];
           }
+
+          $anh = $_FILES['anh']['name'];
+          $target = "../user/images/books/" . basename($anh);
          
 
            
-				  $sql = "UPDATE sanpham SET TenSP='$tensp', MaDM='$madm', Anh ='$file_name', SoLuong = '$soluong', DonGia = '$dongia', ChatLieu = '$chatlieu', MaMau = '$mausac',
+				  $sql = "UPDATE sanpham SET TenSP='$tensp', MaDM='$madm', Anh ='$anh', SoLuong = '$soluong', DonGia = '$dongia', ChatLieu = '$chatlieu', MaMau = '$mausac',
           KichThuoc = '$kichthuoc', MaNCC = '$ncc', TrongLuong = '$trongluong', ChiTiet = '$chitiet' WHERE MaSP='$id'";
 						if (mysqli_query($conn, $sql)) {
               
@@ -205,7 +206,7 @@
             }
             ob_start();
             mysqli_close($conn);
-            echo "<script> window.location.href='manage_book.php';</script>";
+            echo "<script> window.location.href='manage_product.php';</script>";
               
             ob_end_flush();
 					}

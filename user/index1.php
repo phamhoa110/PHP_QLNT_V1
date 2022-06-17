@@ -1,8 +1,9 @@
 <?php
+
 require 'config.php';
 include("header1.php");
 if (!isset($_SESSION['dangnhap'])) {
-	
+
 	echo "<script>window.location.href='login.php';</script>";
 }
 
@@ -41,7 +42,7 @@ $sql_count = "SELECT COUNT(*) FROM sanpham ;"
 						<div id="tg-bestsellingbooksslider" class="tg-bestsellingbooksslider tg-bestsellingbooks owl-carousel">
 
 							<?php
-							
+
 							$sql = "SELECT *FROM sanpham ";
 
 
@@ -71,14 +72,20 @@ $sql_count = "SELECT COUNT(*) FROM sanpham ;"
 											<div class="tg-postbookcontent">
 												<ul class="tg-bookscategories">
 													<li>
-														<input type="number" name="soluong" id="soluong" value="1">
+														<?php
+														$ma_dm = $row['MaDM'];
+														$sql_dm = "select * from danhmuc where MaDM = '$ma_dm'";
+														$row_dm = mysqli_fetch_assoc(mysqli_query($conn, $sql_dm));
+														echo $row_dm['TenDM'];
+														?>
 													</li>
 												</ul>
-												<input type="hidden" name="MaSP" id="" value="<?= $row['MaSP']?>">
 												<div class="tg-booktitle">
 													<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
 												</div>
 												<span class="tg-bookwriter"><a href="javascript:void(0);"> <?php echo $row['DonGia'] ?></a></span>
+												<input type="number" name="soluong" value="1">
+												<input type="hidden" name="MaSP" value="<?= $row['MaSP'] ?>">
 
 												<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
 													<button type="submit" class="themgiosach" name="themgiosach"><i class="fa fa-shopping-basket"></i>
@@ -96,9 +103,12 @@ $sql_count = "SELECT COUNT(*) FROM sanpham ;"
 											</figure>
 											<div class="tg-postbookcontent">
 												<ul class="tg-bookscategories">
-													<li>
-														<input type="number" name="soluong" id="soluong" value="1">
-													</li>
+													<li><?php
+														$ma_dm = $row['MaDM'];
+														$sql_dm = "select * from danhmuc where MaDM = '$ma_dm'";
+														$row_dm = mysqli_fetch_assoc(mysqli_query($conn, $sql_dm));
+														echo $row_dm['TenDM'];
+														?></li>
 												</ul>
 												<div class="tg-booktitle">
 													<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>

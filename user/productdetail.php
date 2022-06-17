@@ -1,6 +1,5 @@
 <?php
 include("header1.php");
-// $sql_chitiet  = "SELECT book.image,book_name,nganh_name,author_name,descrip FROM category,book,author WHERE category.nganh_id = book.nganh_id AND book.author_id = author.author_id AND book.book_id = '$_GET[book_id]'  LIMIT 1";
 $id = $_GET['MaSP'];
 $sql_chitiet = "SELECT *  FROM sanpham INNER JOIN danhmuc on sanpham.MaDM=danhmuc.MaDM WHERE sanpham.MaSP=$id";
 $query_chitiet = mysqli_query($conn, $sql_chitiet);
@@ -11,10 +10,9 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 
 
 <body>
-	<!--************************************
-				Inner Banner Start
-		*************************************-->
+
 	<div class="tg-innerbanner tg-haslayout tg-parallax tg-bginnerbanner" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bgparallax-07.jpg">
+
 	</div>
 	<!--************************************
 				Inner Banner End
@@ -38,7 +36,7 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 										<?php
 										while ($row = mysqli_fetch_array($query_chitiet)) {
 										?>
-											<form action="themgiosach.php?MaSP=<?php echo $row['MaSP'] ?>" method="POST">
+											<form action="themgiosach.php" method="POST">
 												<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 
 													<div class="tg-postbook">
@@ -66,7 +64,8 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 														<div class="tg-booktitle">
 															<h3>Giá: <?php echo $row['DonGia'] ?></h3>
 														</div>
-														<span>Số lượng: <input type="number" name="soluong" value="1"></span>
+														<input type="number" name="soluong" value="1">
+														<input type="hidden" name="MaSP" value="<?= $row['MaSP'] ?>">
 														<span class="tg-bookwriter">Kích thước: <a href="javascript:void(0);"><?php echo $row['KichThuoc'] ?></a></span>
 														<span class="tg-bookwriter">Màu sắc:
 															<select name="mausac" class="form-control" style="width: 300px;">

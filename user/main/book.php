@@ -31,7 +31,7 @@
 				?>
 					<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
 						<div class="tg-postbook">
-							<form action="themgiosach.php?MaSP=<?php echo $row['MaSP'] ?>" method="POST">
+							<form action="themgiosach.php" method="POST">
 								<figure class="tg-featureimg">
 									<div class="tg-bookimg">
 										<div class="tg-frontcover"><img src="images\books\<?php echo $row['Anh'] ?>" alt="image description"></div>
@@ -54,8 +54,8 @@
 										<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
 									</div>
 									<span class="tg-bookwriter">Gia : <a href="javascript:void(0);"> <?php echo $row['DonGia'] ?></a></span>
-								
-
+									<input type="number" name="soluong" value="1">
+									<input type="hidden" name="MaSP" value="<?= $row['MaSP'] ?>">
 									<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
 										<button type="submit" class="themgiosach" name="themgiosach"><i class="fa fa-shopping-basket"></i>
 											<em>Thêm vào giỏ</em></button>

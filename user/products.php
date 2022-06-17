@@ -41,15 +41,7 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-left">
 								<aside id="tg-sidebar" class="tg-sidebar">
 
-									<div class="tg-widget tg-widgetsearch">
-										<form action="products.php?quanly=timkiem" class="tg-formtheme tg-formsearch " method="GET">
-											<div class="form-group">
-
-												<input type="text" name="search" class="form-group" placeholder="Tìm kiếm sách..." >
-												<button type="submit"><i class="icon-magnifier"></i></button>
-											</div>
-										</form>
-									</div>
+									
 
 									<div class="tg-widget tg-catagories">
 										<div class="tg-widgettitle">
@@ -67,7 +59,7 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
 									</div>
 
 									<?php 
-									// include("tuongtac.php")
+									include("tuongtac.php")
 									?>
 								</aside>
 							</div>

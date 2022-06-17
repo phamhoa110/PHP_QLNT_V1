@@ -80,7 +80,7 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 													<div class="tg-booktitle">
 														<h3>Giá: <?php echo $row['DonGia'] ?></h3>
 													</div>
-													<input type="number" name="soluong" value="1">
+													<span>Số lượng: <input type="number" name="soluong" value="1"></span>
 													<span class="tg-bookwriter">Kích thước: <a href="javascript:void(0);"><?php echo $row['KichThuoc'] ?></a></span>
 													<span class="tg-bookwriter">Màu sắc:
 													<select name="mausac" class="form-control" style="width: 300px;">

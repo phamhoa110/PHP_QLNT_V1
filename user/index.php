@@ -61,12 +61,10 @@
 										</figure>
 										<div class="tg-postbookcontent">
 											<ul class="tg-bookscategories">
-												<li><?php 
-													$ma_dm = $row['MaDM'];
-													$sql_dm = "select * from danhmuc where MaDM = '$ma_dm'";
-												$row_dm = mysqli_fetch_assoc(mysqli_query($conn, $sql_dm));
-												echo $row_dm['TenDM'];
-												?></li>
+												<li>
+												<input type="number" name="soluong" id="soluong" value="1">
+												</li>
+												
 											</ul>
 											<div class="tg-booktitle">
 												<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
@@ -89,12 +87,9 @@
 										</figure>
 										<div class="tg-postbookcontent">
 											<ul class="tg-bookscategories">
-												<li><?php 
-													$ma_dm = $row['MaDM'];
-													$sql_dm = "select * from danhmuc where MaDM = '$ma_dm'";
-												$row_dm = mysqli_fetch_assoc(mysqli_query($conn, $sql_dm));
-												echo $row_dm['TenDM'];
-												?></li>
+												<li>
+												<input type="number" name="soluong" id="soluong" value="1">
+												</li>
 											</ul>
 											<div class="tg-booktitle">
 												<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>

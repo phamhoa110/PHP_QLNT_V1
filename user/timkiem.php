@@ -51,7 +51,7 @@
 									<li><a href="javascript:void(0);"><?php echo $row['TenDM'] ?></a></li>
 								</ul>
 								<div class="tg-booktitle">
-									<h3><a href="productdetail.html"> <?php echo $row['TenSP'] ?> </a></h3>
+									<h3><a href="productdetail.php"> <?php echo $row['TenSP'] ?> </a></h3>
 								</div>
 								<span class="tg-bookwriter"><a href="javascript:void(0);"> <?php echo $row['DonGia'] ?></a></span>
 								<span class="tg-stars"><span></span></span>

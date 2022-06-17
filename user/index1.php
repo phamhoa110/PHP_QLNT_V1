@@ -1,13 +1,13 @@
 <?php
-	//require 'config1.php';
-	require 'config.php';
-	include("header1.php");
-	if(!isset($_SESSION['dangnhap'])){
-		//header("Location:index.php");
-        echo "<script>window.location.href='login.php';</script>";
-	}
+//require 'config1.php';
+require 'config.php';
+include("header1.php");
+if (!isset($_SESSION['dangnhap'])) {
+	//header("Location:index.php");
+	echo "<script>window.location.href='login.php';</script>";
+}
 
-	$sql_count = "SELECT COUNT(*) FROM sanpham ;"
+$sql_count = "SELECT COUNT(*) FROM sanpham ;"
 ?>
 
 <!doctype html>
@@ -45,84 +45,75 @@
 							// $sql = "SELECT book.image,book_name,author_name,nganh_name,book_id
 							// FROM author inner join book on book.author_id =author.author_id 
 							// inner join category on book.nganh_id = category.nganh_id ";
-							$sql="SELECT *FROM sanpham ";
+							$sql = "SELECT *FROM sanpham ";
 
 
-							$result = mysqli_query($conn,$sql);
+							$result = mysqli_query($conn, $sql);
 							while ($row = mysqli_fetch_array($result)) {
 							?>
-							
+
 								<div class="item">
-									
-							<form action="themgiosach.php?MaSP=<?php echo $row['MaSP'] ?>" method="POST">
-									<div class="tg-postbook">
-										<figure class="tg-featureimg">
-											<div class="tg-bookimg">
-												<div class="tg-frontcover">
-													
-													<img src="images\books\<?=$row['Anh']?>" alt="image description">
-													
+
+									<form action="themgiosach.php?MaSP=<?php echo $row['MaSP'] ?>" method="POST">
+										<div class="tg-postbook">
+											<figure class="tg-featureimg">
+												<div class="tg-bookimg">
+													<div class="tg-frontcover">
+
+														<img src="images\books\<?= $row['Anh'] ?>" alt="image description">
+
+													</div>
+													<div class="tg-backcover">
+
+														<img src="images\books\<?= $row['Anh'] ?>" alt="image description">
+
+													</div>
 												</div>
-												<div class="tg-backcover">
-													
-													<img src="images\books\<?=$row['Anh']?>" alt="image description">
-											
+
+											</figure>
+											<div class="tg-postbookcontent">
+												<ul class="tg-bookscategories">
+													<li>
+													<input type="number" name="soluong" id="soluong" value="1">
+													</li>
+												</ul>
+												<div class="tg-booktitle">
+													<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
 												</div>
-											</div>
+												<span class="tg-bookwriter"><a href="javascript:void(0);"> <?php echo $row['DonGia'] ?></a></span>
 
-										</figure>
-										<div class="tg-postbookcontent">
-											<ul class="tg-bookscategories">
-												<li>
-												<?php 
-													$ma_dm = $row['MaDM'];
-													$sql_dm = "select * from danhmuc where MaDM = '$ma_dm'";
-												$row_dm = mysqli_fetch_assoc(mysqli_query($conn, $sql_dm));
-												echo $row_dm['TenDM'];
-												?>
-												</li>
-											</ul>
-											<div class="tg-booktitle">
-												<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
+												<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
+													<button type="submit" class="themgiosach" name="themgiosach"><i class="fa fa-shopping-basket"></i>
+														<em>Thêm vào giỏ</em></button>
+												</a>
 											</div>
-											<span class="tg-bookwriter"><a href="javascript:void(0);"> <?php echo $row['DonGia'] ?></a></span>
-											
-
-											<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
-												<button type="submit" class="themgiosach" name="themgiosach"><i class="fa fa-shopping-basket"></i>
-													<em>Thêm vào giỏ</em></button>
-											</a>
 										</div>
-									</div>
-									<div class="tg-postbook">
-										<figure class="tg-featureimg">
-											<div class="tg-bookimg">
-												<div class="tg-frontcover"><img src="images\books\<?=$row['Anh']?>" alt="image description"></div>
-												<div class="tg-backcover"><img src="images\books\<?=$row['Anh']?>" alt="image description"></div>
-											</div>
+										<div class="tg-postbook">
+											<figure class="tg-featureimg">
+												<div class="tg-bookimg">
+													<div class="tg-frontcover"><img src="images\books\<?= $row['Anh'] ?>" alt="image description"></div>
+													<div class="tg-backcover"><img src="images\books\<?= $row['Anh'] ?>" alt="image description"></div>
+												</div>
 
-										</figure>
-										<div class="tg-postbookcontent">
-											<ul class="tg-bookscategories">
-												<li><?php 
-													$ma_dm = $row['MaDM'];
-													$sql_dm = "select * from danhmuc where MaDM = '$ma_dm'";
-												$row_dm = mysqli_fetch_assoc(mysqli_query($conn, $sql_dm));
-												echo $row_dm['TenDM'];
-												?></li>
-											</ul>
-											<div class="tg-booktitle">
-												<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
+											</figure>
+											<div class="tg-postbookcontent">
+												<ul class="tg-bookscategories">
+													<li>
+														<input type="number" name="soluong" id="soluong" value="1">
+													</li>
+												</ul>
+												<div class="tg-booktitle">
+													<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
+												</div>
+												<span class="tg-bookwriter"><a href="javascript:void(0);"> <?php echo $row['DonGia'] ?></a></span>
+
+
+												<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
+													<button type="submit" class="themgiosach" name="themgiosach"><i class="fa fa-shopping-basket"></i>
+														<em>Thêm vào giỏ</em></button>
+												</a>
 											</div>
-											<span class="tg-bookwriter"><a href="javascript:void(0);"> <?php echo $row['DonGia'] ?></a></span>
-											
-											
-											<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
-												<button type="submit" class="themgiosach" name="themgiosach"><i class="fa fa-shopping-basket"></i>
-													<em>Thêm vào giỏ</em></button>
-											</a>
 										</div>
-									</div>
 								</div>
 
 								</form>
@@ -134,7 +125,7 @@
 	</div>
 	</section>
 
-	<?php 
+	<?php
 	// include("new_book.php") 
 	?>
 	<!--************************************
@@ -152,13 +143,13 @@
 							<div class="tg-titlepluscounter">
 								<h2>Kệ và giá</h2>
 								<?php
-									$sql_BanGhe = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Kệ và giá';";
-									$banghe = mysqli_fetch_assoc(mysqli_query($conn, $sql_BanGhe));
+								$sql_BanGhe = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Kệ và giá';";
+								$banghe = mysqli_fetch_assoc(mysqli_query($conn, $sql_BanGhe));
 								?>
-								<h3 data-from="0" data-to="<?= $banghe['SoSanPham']?>" data-speed="1000" data-refresh-interval="50">
+								<h3 data-from="0" data-to="<?= $banghe['SoSanPham'] ?>" data-speed="1000" data-refresh-interval="50">
 									<?php
-										
-										echo $banghe['SoSanPham'];
+
+									echo $banghe['SoSanPham'];
 									?>
 								</h3>
 							</div>
@@ -170,13 +161,13 @@
 							<div class="tg-titlepluscounter">
 								<h2>Tủ</h2>
 								<?php
-									$sql_Tu = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Tủ';";
-									$tu = mysqli_fetch_assoc(mysqli_query($conn, $sql_Tu));
+								$sql_Tu = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Tủ';";
+								$tu = mysqli_fetch_assoc(mysqli_query($conn, $sql_Tu));
 								?>
-								<h3 data-from="0" data-to="<?= $tu['SoSanPham']?>" data-speed="1000" data-refresh-interval="50">
+								<h3 data-from="0" data-to="<?= $tu['SoSanPham'] ?>" data-speed="1000" data-refresh-interval="50">
 									<?php
-										
-										echo $tu['SoSanPham'];
+
+									echo $tu['SoSanPham'];
 									?>
 								</h3>
 							</div>
@@ -188,13 +179,13 @@
 							<div class="tg-titlepluscounter">
 								<h2>Bàn</h2>
 								<?php
-									$sql_ban = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Bàn';";
-									$ban = mysqli_fetch_assoc(mysqli_query($conn, $sql_ban));
+								$sql_ban = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Bàn';";
+								$ban = mysqli_fetch_assoc(mysqli_query($conn, $sql_ban));
 								?>
-								<h3 data-from="0" data-to="<?= $ban['SoSanPham']?>" data-speed="1000" data-refresh-interval="50">
+								<h3 data-from="0" data-to="<?= $ban['SoSanPham'] ?>" data-speed="1000" data-refresh-interval="50">
 									<?php
-										
-										echo $ban['SoSanPham'];
+
+									echo $ban['SoSanPham'];
 									?>
 								</h3>
 							</div>
@@ -206,13 +197,13 @@
 							<div class="tg-titlepluscounter">
 								<h2>Ghế</h2>
 								<?php
-									$sql_Ghe = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Ghế';";
-									$ghe = mysqli_fetch_assoc(mysqli_query($conn, $sql_Ghe));
+								$sql_Ghe = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Ghế';";
+								$ghe = mysqli_fetch_assoc(mysqli_query($conn, $sql_Ghe));
 								?>
-								<h3 data-from="0" data-to="<?= $ghe['SoSanPham']?>" data-speed="1000" data-refresh-interval="50">
+								<h3 data-from="0" data-to="<?= $ghe['SoSanPham'] ?>" data-speed="1000" data-refresh-interval="50">
 									<?php
-										
-										echo $ghe['SoSanPham'];
+
+									echo $ghe['SoSanPham'];
 									?>
 								</h3>
 							</div>
@@ -224,13 +215,13 @@
 							<div class="tg-titlepluscounter">
 								<h2>Gương</h2>
 								<?php
-									$sql_Guong = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Gương';";
-									$guong = mysqli_fetch_assoc(mysqli_query($conn, $sql_Guong));
+								$sql_Guong = "select count(MaSP) as SoSanPham from sanpham inner join danhmuc on sanpham.MaDM = danhmuc.MaDM where danhmuc.TenDM = 'Gương';";
+								$guong = mysqli_fetch_assoc(mysqli_query($conn, $sql_Guong));
 								?>
-								<h3 data-from="0" data-to="<?= $guong['SoSanPham']?>" data-speed="1000" data-refresh-interval="50">
+								<h3 data-from="0" data-to="<?= $guong['SoSanPham'] ?>" data-speed="1000" data-refresh-interval="50">
 									<?php
-										
-										echo $guong['SoSanPham'];
+
+									echo $guong['SoSanPham'];
 									?>
 								</h3>
 							</div>
@@ -248,7 +239,7 @@
 					Testimonials Start
 			*************************************-->
 	<section class="tg-parallax tg-bgtestimonials tg-haslayout" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bg_6.jpg">
-		
+
 	</section>
 	<!--************************************
 					Testimonials End

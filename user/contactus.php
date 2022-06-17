@@ -9,12 +9,12 @@
 				Header Start
 		*************************************-->
 		<?php 
-			if(!isset($_SESSION['dangnhap'])){
+			// if(!isset($_SESSION['dangnhap'])){
+			// 	include("header.php");
+			// }
+			// else{
 				include("header1.php");
-			}
-			else{
-				include("header.php");
-			}
+			//}
 		?>
 		<!--************************************
 				Header End

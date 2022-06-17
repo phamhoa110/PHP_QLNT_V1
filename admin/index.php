@@ -17,7 +17,11 @@ if(!isset($_SESSION['dangnhap1'])){
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
   <title>Quản lý nội thất</title>
+=======
+  <title>Nội thất đẹp Hà Nội | Dashboard</title>
+>>>>>>> c583533b97db506bb12d5812c304e795fd84badb
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -48,11 +52,12 @@ if(!isset($_SESSION['dangnhap1'])){
 
   <?php 
     include "include/header.php";
-    require 'config.php';
-    $q1 = mysqli_query($conn,"SELECT * FROM category");
-    $q2 = mysqli_query($conn,"SELECT * FROM book");
-    $q3 = mysqli_query($conn,"SELECT * FROM book_borrow");
-    $q4 = mysqli_query($conn,"SELECT * FROM author");
+    require 'configQLNT.php';
+    $q1 = mysqli_query($conn,"SELECT * FROM danhmuc");
+    $q2 = mysqli_query($conn,"SELECT * FROM sanpham");
+    $q3 = mysqli_query($conn,"SELECT * FROM nhacungcap");
+    $q4 = mysqli_query($conn,"SELECT * FROM tblorderdetails");
+    $q5 = mysqli_query($conn,"SELECT * FROM user");
    ?>
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -111,12 +116,12 @@ if(!isset($_SESSION['dangnhap1'])){
               <div class="inner">
                 <h3><?php echo mysqli_num_rows($q3); ?></h3>
 
-                <p>Hóa đơn</p>
+                <p>Nhà cung cấp</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="manage_ncc.php" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -131,14 +136,14 @@ if(!isset($_SESSION['dangnhap1'])){
               <div class="icon">
                 <i class="ion ion-person-stalker"></i>
               </div>
-              <a href="manage_author.php" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="thongke.php" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3><?php echo mysqli_num_rows($q4); ?></h3>
+                <h3><?php echo mysqli_num_rows($q5); ?></h3>
 
                 <p>Người dùng</p>
               </div>

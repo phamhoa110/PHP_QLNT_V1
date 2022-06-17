@@ -1,7 +1,7 @@
 <?php
 	//require 'config1.php';
 	require 'config.php';
-	include("header.php");
+	include("header1.php");
 	// if(!isset($_SESSION['dangnhap'])){
 	// 	header("Location:login.php");
 	// }

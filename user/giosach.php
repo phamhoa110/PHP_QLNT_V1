@@ -1,90 +1,7 @@
 <?php
 include("header1.php");
 
-// $error = array();
-// $data  = array();
 
-
-// if (!empty($_POST['borrow'])) {
-//     $data['user_id']    = isset($_POST['user_id']) ? $_POST['user_id'] : '';
-//     $data['fullname']    = isset($_POST['fullname']) ? $_POST['fullname'] : '';
-//     $data['class']       = isset($_POST['class']) ? $_POST['class'] : '';
-//     $data['email']       = isset($_POST['email']) ? $_POST['email'] : '';
-//     $data['phone']       = isset($_POST['phone']) ? $_POST['phone'] : '';
-//     $data['days']       = isset($_POST['days']) ? $_POST['days'] : '';
-
-//     $user_id = '';
-//     $fullname = '';
-//     $class = '';
-//     $email = '';
-//     $phone = '';
-//     $days = '';
-
-//     if (empty($data['user_id'])) {
-//         $error['user_id'] = 'Bạn chưa nhập mã sinh viên';
-//     } else {
-//         if (!preg_match('/((20)+([0-9]{8})\b)/', $data['user_id'])) {
-//             $error['user_id'] = 'Mã sinh viên phải bao gồm 10 chữ số';
-//         } else $user_id = $data['user_id'];
-//     }
-
-//     if (empty($data['fullname'])) {
-//         $error['fullname'] = 'Bạn chưa nhập họ và tên';
-//     } else {
-//         // a-zA-Z\
-//         if (!preg_match('/^[\D]{3,40}$/', $data['fullname'])) {
-//             $error['fullname'] = 'Họ và tên phải là chữ (ít nhất 3 chữ cái)';
-//         } else $fullname = $data['fullname'];
-//     }
-
-//     if (empty($data['class'])) {
-//         $error['class'] = 'Bạn chưa nhập tên lớp';
-//     } else {
-//         if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/', $data['class'])) {
-//             $error['class'] = 'Tên lớp phải tối thiểu 4 ký tự, ít nhất một chữ cái và một số';
-//         } else $class = $data['class'];
-//     }
-//     if (empty($data['email'])) {
-//         $error['email'] = 'Bạn chưa nhập email';
-//     } else {
-//         if (!preg_match('/^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z]+(\\.[A-Za-z0-9]+)$/', $data['email'])) {
-//             $error['email'] = 'Email: phải tuân thủ quy tắc gồm ký tự @ và sau đó là dấu . ';
-//         } else $email = $data['email'];
-//     }
-//     if (empty($data['phone'])) {
-//         $error['phone'] = 'Bạn chưa nhập số điện thoại';
-//     } else {
-//         if (!preg_match('/((09|03|07|08|05)+([0-9]{8})\b)/', $data['phone'])) {
-//             $error['phone'] = 'Số điện thoại không hợp lệ ( bao gồm 10 chữ số). ';
-//         } else $phone = $data['phone'];
-//     }
-//     if (empty($data['days'])) {
-//         $error['days'] = 'Bạn chưa nhập số ngày mượn sách';
-//     } else {
-//         if ($data['days'] > 15 || $data['days'] < 0) {
-//             $error['days'] = 'Bạn chỉ được mượn sách tối đa 14 ngày. ';
-//         } else $days = $data['days'];
-//     }
-
-//     if (!$error) {
-//         $insert_user = "INSERT INTO user(user_id,fullname,class,email,phone)
-//             VALUES ('" . $user_id . "','" . $fullname . "','" . $class . "','" . $email . "','" . $phone . "')";
-//         mysqli_query($conn, $insert_user);
-
-//         foreach ($_SESSION['cart'] as $key => $value) {
-//             $date = date('Y-m-j');
-//             $newdate = strtotime ( '+'.$days.' day' , strtotime ( $date ) ) ;
-//             $newdate = date ( 'Y-m-j' , $newdate );
-//             $book_id = $value['id'];
-//             $qty = $value['soluong'];
-//             $insert_borrow = "INSERT INTO book_borrow(book_id,qty,borrow_date,user_id,deadline,return_date,status)
-//                 VALUES ('" . $book_id . "','" . $qty . "','".$date."','" . $user_id . "','" . $days . "','".$newdate."','Chưa đặt cọc')";
-//                 mysqli_query($conn, $insert_borrow);
-//         }
-//         echo '<script>alert("Mượn sách thành công \nBạn có thể xem phiếu mượn")</script>';
-//         unset($_SESSION['cart']);
-//     }
-// }
 ?>
 
 <!doctype html>
@@ -97,7 +14,7 @@ include("header1.php");
         <!--************************************
 				Inner Banner Start
 		*************************************-->
-        <div class="tg-innerbanner tg-haslayout tg-parallax tg-bginnerbanner" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bgparallax-07.jpg">
+        <div class="tg-innerbanner tg-haslayout tg-parallax tg-bginnerbanner" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bg_6.jpg">
             
         </div>
         <!--************************************

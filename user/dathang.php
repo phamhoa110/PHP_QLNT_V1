@@ -1,37 +1,5 @@
 <?php
-	//1. Tạo ra 1 đơn hàng=>tạo 1 bản ghi trong bảng tblorder
-	//2. Tạo ra nhiều bản ghi trong bảng tblorderdetails
-	//3. xóa giỏ hàng
-	// session_start();
-	// include_once('config.php');
-	// $ten=$_SESSION['dangnhap'];
-	// $cart = $_SESSION['cart'];
-	// //kết nối csdl
 	
-	// $odate = date('Y-m-d');
-	// $otime = date('H:i:s');
-	// $total = 0;
-	// $userid=$ten;
-	// foreach($cart as $k=>$v){
-	// 	$total+=$v['soluong']*$v['DonGia'];
-	// }
-	// $sql = "INSERT INTO tblorder (odate,otime,tong,user_id) VALUES('$odate','$otime','$total','$userid')";
-	
-	// mysqli_query($conn,$sql);
-	// //lấy id của bản ghi vừa chèn (sau cùng);
-	// $id = mysqli_insert_id($conn);
-	
-	// foreach($cart as $k=>$v){
-		
-	// 	$quantity = $v['soluong'];
-	// 	$price = $v['DonGia'];
-	// 	$sql = "INSERT INTO tblorderdetails (orderid,sanphamid,soluong,dongia) VALUES('$id','$k','$quantity','$price')";
-		
-	// 	mysqli_query($conn,$sql);
-	// }
-	// unset($_SESSION['cart']);
-	// mysqli_close($conn);
-	// header("Location: showcart.php");
 include_once("config.php");
 include("header1.php");
 if (!empty($_SESSION['dangnhap'])) {
@@ -66,12 +34,12 @@ if (!empty($_SESSION['dangnhap'])) {
 	mysqli_close($conn);
 	echo "<script>window.location.href='danhsachdh.php';</script>";
                        
-                        }
-                     else {
-                        echo '<script>alert("Chưa có sản phẩm nào trong giỏ hàng!")</script>';
-                        echo '<script>window.location.href="index1.php";</script>';
-                    }
-                } else {
-                    echo '<script>alert("Bạn chưa đăng nhập!")</script>';
-                }
+          }
+        else {
+            echo '<script>alert("Chưa có sản phẩm nào trong giỏ hàng!")</script>';
+            echo '<script>window.location.href="index1.php";</script>';
+        }
+ } else {
+    echo '<script>alert("Bạn chưa đăng nhập!")</script>';
+ }
 ?>

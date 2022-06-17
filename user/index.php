@@ -61,13 +61,18 @@
 										</figure>
 										<div class="tg-postbookcontent">
 											<ul class="tg-bookscategories">
-												<li><a href="javascript:void(0);"><?php echo $row['TenSP'] ?></a></li>
+												<li><?php 
+													$ma_dm = $row['MaDM'];
+													$sql_dm = "select * from danhmuc where MaDM = '$ma_dm'";
+												$row_dm = mysqli_fetch_assoc(mysqli_query($conn, $sql_dm));
+												echo $row_dm['TenDM'];
+												?></li>
 											</ul>
 											<div class="tg-booktitle">
-												<h3><a href="productdetail.php?quanly=sach&book_id=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
+												<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
 											</div>
 											<span class="tg-bookwriter"><a href="javascript:void(0);"> <?php echo $row['DonGia'] ?></a></span>
-											<span class="tg-stars"><span></span></span>
+											
 											<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
 												<button type="submit" class="themgiosach" name="themgiosach"><i class="fa fa-shopping-basket"></i>
 													<em>Thêm vào giỏ</em></button>
@@ -84,10 +89,15 @@
 										</figure>
 										<div class="tg-postbookcontent">
 											<ul class="tg-bookscategories">
-												<li><a href="javascript:void(0);"><?php echo $row['TenSP'] ?></a></li>
+												<li><?php 
+													$ma_dm = $row['MaDM'];
+													$sql_dm = "select * from danhmuc where MaDM = '$ma_dm'";
+												$row_dm = mysqli_fetch_assoc(mysqli_query($conn, $sql_dm));
+												echo $row_dm['TenDM'];
+												?></li>
 											</ul>
 											<div class="tg-booktitle">
-												<h3><a href="productdetail.php?quanly=sach&book_id=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
+												<h3><a href="productdetail.php?MaSP=<?php echo $row['MaSP'] ?>"><?php echo $row['TenSP'] ?> </a></h3>
 											</div>
 											<span class="tg-bookwriter"><a href="javascript:void(0);"> <?php echo $row['DonGia'] ?></a></span>
 										

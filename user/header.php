@@ -94,6 +94,7 @@ $query_dm = mysqli_query($conn, $sql_dm);
 										</figure>
 										<div class="tg-minicarproductdata">
 											<h5><a href=""><?php echo $cart_item['TenSP'] ?></a></h5>
+											
 										</div>
 									</div>
 									

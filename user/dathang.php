@@ -9,6 +9,14 @@ if (!empty($_SESSION['dangnhap'])) {
                        
                             $cart_item = $_SESSION['cart'];
 	//kết nối csdl
+	if(isset($_POST['borrow'])){
+		$hoten=$_POST['hoten'];
+		$diachi=$_POST['diachi'];
+		$sdt=$_POST['sdt'];
+		$sql="INSERT INTO thongtinnhanhang(hoten,diachi,sdt) VALUES('$hoten','$diachi','$sdt')";
+		mysqli_query($conn,$sql);
+		$id = mysqli_insert_id($conn);
+	}
 	
 	$odate = date("Y-m-d H:i:s");
 	$otime = date('H:i:s');

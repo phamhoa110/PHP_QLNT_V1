@@ -1,7 +1,19 @@
 <?php
 include("header1.php");
-
-
+if (isset($_SESSION['dangnhap'])){
+if(isset($_POST['vanchuyen'])){
+	$ten=$_POST['hoten'];
+	$diachi=$_POST['diachi'];
+	$sdt=$_POST['sdt'];
+	$tendn=$_SESSION['dangnhap'];
+	
+	$sql_vn="INSERT INTO thongtinnhanhang(hoten,diachi,sdt,uname) VALUES ('$ten','$diachi','$sdt','$tendn')";
+	$query_vn=mysqli_query($conn,$sql_vn);
+	if($query_vn){
+		echo '<script>alert("cap nhat thong tin van chuyen thanh cong")</script>';
+	}
+	}
+}
 ?>
 
 <!doctype html>
@@ -30,6 +42,22 @@ include("header1.php");
 			*************************************-->
             <div class="tg-sectionspace tg-haslayout">
                 <div class="container">
+                	<h3>Thông tin vận chuyển</h3>
+                	 <div class="row">
+                	 	<form action="" method="POST">
+                	 		<label>Họ và tên</label>
+                	 		<input type="text" name="hoten" required>  
+                	 		<br> 
+                	 		<label>Địa chỉ</label>
+                	 		<input type="text" name="diachi" required>  
+                	 		<br> 
+                	 		<label>Số điện thoại</label>
+                	 		<input type="text" name="sdt" required>  
+                	 		<br>   
+                	 		<button class="borrow" type="submit" name="vanchuyen">thông tin vận chuyển</button>           	 	
+                	 	</form>
+
+                	 </div>
                     <div class="row">
                         <div id="tg-twocolumns" class="tg-twocolumns">
 
@@ -50,7 +78,6 @@ include("header1.php");
                                                 <th>Số lượng</th>
                                                 <th>Đơn giá</th>
                                                 <th>Tổng tiền</th>
-                                                <th>Quản lý</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -70,14 +97,14 @@ include("header1.php");
                                                         <td> <?php echo $cart_item['TenSP'] ?> </td>
                                                         <td> <img src=" images/books/<?= $cart_item['Anh'] ?>" alt="image description"> </td>
                                                         <td>
-                                                            <a href="themgiohang.php?cong=<?php echo $cart_item['MaSP'] ?>">+</a>
+                                                            
 
                                                             <?php echo $cart_item['soluong'] ?>
-                                                            <a href="themgiohang.php?tru=<?php echo $cart_item['MaSP'] ?>">-</a>
+                                                            
                                                         </td>
                                                         <td><?php echo $cart_item['DonGia'] ?></td>
                                                         <td><?php echo $tong ?></td>
-                                                        <td><a href="themgiohang.php?xoa=<?php echo $cart_item['MaSP'] ?>">Xóa </a></td>
+                                                        
                                                     </tr>
 
                                                 <?php
@@ -101,16 +128,12 @@ include("header1.php");
                                                     ?>
                                                 </td>
                                             </tr>
-                                            <td colspan="6">
-                                                <a class="delete" href="themgiohang.php?xoatatca=1">XÓA TẤT CẢ</a>
-                                            </td>
+                                           
                                         </tbody>
                                     </table>
 
                                
-                                <a href="thongtindonhang.php"> <input type="submit" name="borrow" class="borrow" value="Đặt hàng"></a>
-                                <a href="index1.php"><input type="submit" class="borrow" value="Mua tiếp"></a>
-                                <a href="danhsachdh.php"><input type="submit" class="borrow" value="Xem đơn đặt hàng"></a>
+                                <a href="dathang.php"> <input type="submit" name="borrow" class="borrow" value="Thanh toán"></a>
                             </div>
                         </div>
 

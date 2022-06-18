@@ -25,25 +25,6 @@ include_once("header1.php");
                 <div class="row">
                     <div id="tg-twocolumns" class="tg-twocolumns">
 
-                        <!-- <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-left">
-                                <aside id="tg-sidebar" class="tg-sidebar">
-
-                                    <div class="tg-widget tg-widgetsearch">
-                                        <form action="products.php?quanly=timkiem" class="tg-formtheme tg-formsearch " method="GET">
-                                            <div class="form-group">
-
-                                                <input type="text" name="search" class="form-group" placeholder="Tìm kiếm sách...">
-                                                <button type="submit"><i class="icon-magnifier"></i></button>
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <?php
-                                    //include("tuongtac.php") 
-                                    ?>
-                                </aside>
-                            </div> -->
-
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <?php
                             if (isset($_SESSION['cart'])) {

@@ -1,7 +1,52 @@
 <?php
 session_start();
 include("config.php");
+//them
+if(isset($_GET['cong'])){
+    $id=$_GET['cong'];
+    foreach($_SESSION['cart'] as $cart_item){
+        if($cart_item['MaSP']!=$id){
+            $product[] =  array('TenSP'=>$cart_item['TenSP'],'Anh'=>$cart_item['Anh'],'soluong'=>$cart_item['soluong'],'DonGia'=>$cart_item['DonGia'],'MaSP'=>$cart_item['MaSP']);
+            $_SESSION['cart']=$product; 
 
+        }
+        else{
+            $tangsl=$cart_item['soluong']+1;
+            if($cart_item['soluong']<9){
+                $product[] =  array('TenSP'=>$cart_item['TenSP'],'Anh'=>$cart_item['Anh'],'soluong'=>$tangsl,'DonGia'=>$cart_item['DonGia'],'MaSP'=>$cart_item['MaSP']);
+            }
+            else{
+                $product[] =  array('TenSP'=>$cart_item['TenSP'],'Anh'=>$cart_item['Anh'],'soluong'=>$cart_item['soluong'],'DonGia'=>$cart_item['DonGia'],'MaSP'=>$cart_item['MaSP']);
+            }
+             $_SESSION['cart']=$product;
+        }
+
+    }
+    echo "<script>window.location.href='giohang.php';</script>";
+}
+//tru so luong
+if(isset($_GET['tru'])){
+    $id=$_GET['tru'];
+    foreach($_SESSION['cart'] as $cart_item){
+        if($cart_item['MaSP']!=$id){
+            $product[] =  array('TenSP'=>$cart_item['TenSP'],'Anh'=>$cart_item['Anh'],'soluong'=>$cart_item['soluong'],'DonGia'=>$cart_item['DonGia'],'MaSP'=>$cart_item['MaSP']);
+            $_SESSION['cart']=$product; 
+
+        }
+        else{
+            $trusl=$cart_item['soluong']-1;
+            if($cart_item['soluong']>1){
+                $product[] =  array('TenSP'=>$cart_item['TenSP'],'Anh'=>$cart_item['Anh'],'soluong'=>$trusl,'DonGia'=>$cart_item['DonGia'],'MaSP'=>$cart_item['MaSP']);
+            }
+            else{
+                $product[] =  array('TenSP'=>$cart_item['TenSP'],'Anh'=>$cart_item['Anh'],'soluong'=>$cart_item['soluong'],'DonGia'=>$cart_item['DonGia'],'MaSP'=>$cart_item['MaSP']);
+            }
+             $_SESSION['cart']=$product;
+        }
+
+    }
+    echo "<script>window.location.href='giohang.php';</script>";
+}
 //xoa sach
 if(isset($_SESSION['cart']) && isset($_GET['xoa'])){
     $id=$_GET['xoa'];
@@ -51,6 +96,6 @@ if(isset($_POST['themgiosach'])){
     }
        
     }
-    header('Location:index1.php');
+    header('Location:giohang.php');
 
 ?>

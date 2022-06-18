@@ -43,7 +43,7 @@
 							</div>
 							<div class="tg-widgetcontent">
 								<ul>
-									<li><a href="gioithieu.html">Giới thiệu</a></li>
+									<li><a href="gioithieu.php">Giới thiệu</a></li>
 									
 									<li><a href="products.php">Sản phẩm</a></li>
 								</ul>

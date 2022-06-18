@@ -4,7 +4,7 @@ include_once("config.php");
 include("header1.php");
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 if (!empty($_SESSION['dangnhap'])) {
-	$ten=$_SESSION['dangnhap'];
+	$id=$_SESSION['userid'];
                     if (!empty($_SESSION['cart'])) {
                        
                             $cart_item = $_SESSION['cart'];
@@ -21,7 +21,7 @@ if (!empty($_SESSION['dangnhap'])) {
 	$odate = date("Y-m-d H:i:s");
 	$otime = date('H:i:s');
 	$total = 0;
-	$userid=$ten;
+	$userid=$id;
 	foreach($cart_item as $k=>$v){
 		$total+=$v['soluong']*$v['DonGia'];
 	}

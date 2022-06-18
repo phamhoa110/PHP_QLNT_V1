@@ -5,9 +5,9 @@ if(isset($_POST['vanchuyen'])){
 	$ten=$_POST['hoten'];
 	$diachi=$_POST['diachi'];
 	$sdt=$_POST['sdt'];
-	$tendn=$_SESSION['dangnhap'];
+	$id=$_SESSION['userid'];
 	
-	$sql_vn="INSERT INTO thongtinnhanhang(hoten,diachi,sdt,uname) VALUES ('$ten','$diachi','$sdt','$tendn')";
+	$sql_vn="INSERT INTO thongtinnhanhang(hoten,diachi,sdt,userid) VALUES ('$ten','$diachi','$sdt','$id')";
 	$query_vn=mysqli_query($conn,$sql_vn);
 	if($query_vn){
 		echo '<script>alert("cap nhat thong tin van chuyen thanh cong")</script>';

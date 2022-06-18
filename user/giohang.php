@@ -57,11 +57,11 @@ include("header1.php");
                                             <?php
                                             if (isset($_SESSION['cart'])) {
                                                 $stt = 0;
-                                                $tongall=0;
+                                                
                                                 foreach ($_SESSION['cart'] as $cart_item) {
                                                     $stt++;
                                                     $tong=$cart_item['soluong']*$cart_item['DonGia'];
-                                                    $tongall+=$tong;
+                                                    
                                                     //if ($sl <= 3) {
                                             ?>
                                                     <tr class="active-row">
@@ -97,8 +97,18 @@ include("header1.php");
                                                 <td colspan="6"><span style="font-size: 18px;">Tổng tiền</span></td>
                                                 <td>
                                                     <?php
-                                                        echo $tongall;
+                                                if (isset($_SESSION['cart'])) {
+                                                $tongall=0;
+                                                foreach ($_SESSION['cart'] as $cart_item) {
+                                                    $tong=$cart_item['soluong']*$cart_item['DonGia'];
+                                                    $tongall+=$tong;
+                                                   
+                                                }
+                                                 
+                                                echo $tongall;
+                                            }
                                                     ?>
+
                                                 </td>
                                             </tr>
                                             <td colspan="6">

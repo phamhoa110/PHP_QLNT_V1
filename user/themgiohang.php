@@ -94,8 +94,8 @@ if(isset($_POST['themgiosach'])){
         //cập nhật lại giỏ hàng
          $_SESSION['cart'] = $cart;
     }
-       
+       header('Location:index1.php');
     }
-    header('Location:giohang.php');
+    
 
 ?>

@@ -8,6 +8,8 @@ if (isset($_POST['dangnhap'])) {
   $matkhau = md5($matkhau);
   $sql = "SELECT * FROM user WHERE username= '" . $taikhoan . "' AND password= '" . $matkhau . "' LIMIT 1";
   $row = mysqli_query($conn, $sql);
+  $r=mysqli_fetch_array($row);
+  $_SESSION['userid']=$r['id'];
   $count = mysqli_num_rows($row);
   if ($count == 0) {
     echo '<script>alert("Tên tài khoản hoặc mật khẩu không đúng")</script>';

@@ -51,11 +51,11 @@ include_once("header1.php");
                                     //kết nối csdl
                                     //session_start();
                                     include_once('config.php');
-
-                                    $ten = $_SESSION['dangnhap'];
+                                    if(isset($_SESSION['dangnhap']))
+                                    $id = $_SESSION['userid'];
 
                                     //Truy vấn hảng tblcategory để lấy các bản ghi
-                                    $sql = "SELECT * FROM tblorder Where user_id='$ten'";
+                                    $sql = "SELECT * FROM tblorder Where user_id='$id'";
                                     $rs = mysqli_query($conn, $sql);
                                     $count = 0;
                                     while ($row = mysqli_fetch_assoc($rs)) {

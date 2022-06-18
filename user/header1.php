@@ -45,6 +45,7 @@ $query_dm = mysqli_query($conn, $sql_dm);
 								Xin chào,<?= $_SESSION['dangnhap'] ?>!
 								<a href="logout.php" onclick="return confirm('Đăng xuất?');">
 									<button type="button">Đăng xuất</button>
+									
 								</a>
 							</h3>
 						<?php
@@ -88,8 +89,7 @@ $query_dm = mysqli_query($conn, $sql_dm);
 							</a>
 
 
-							<!-- <h3>Xin chào! </h3>
-                                    <a href="logout.php" onclick="return confirm('Đăng xuất?');"><button type="button">Đăng xuất</button></a> -->
+							
 							<?php
 							?>
 							<div class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-minicart">

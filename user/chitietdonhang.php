@@ -28,9 +28,7 @@ include_once("header1.php");
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <?php
                             if (isset($_SESSION['cart'])) {
-                                // echo '<pre>';
-                                // print_r($_SESSION['cart']);
-                                // echo '</pre>';
+                             
                             }
                             ?>
                             <div>

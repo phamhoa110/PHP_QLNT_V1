@@ -92,9 +92,7 @@
     </div>
     <section class="content">
         <div class="container">
-        <!-- <div class="buttons">
-                <a href="add_author.php" ><button class="btn-primary">Thêm tác giả</button></a>
-        </div> -->
+       
           <table class="table table-bordered mt-3 .bg-light">
             <thead>
                 <tr>
@@ -141,7 +139,7 @@
                 <td><?php echo $row['orderid']; ?></td>
                 <td><?php 
                   $masp = $row['sanphamid'];
-                  $sql = "SELECT TenSP FROM sanpham WHERE MaSP = '$masp'";
+                  $sql = "SELECT tblorderdetails.soluong,tblorderdetails.dongia,sanpham.TenSP FROM tblorderdetails INNER JOIN sanpham on tblorderdetails.sanphamid=sanpham.MaSP WHERE MaSP = '$masp'";
                   $rs = mysqli_query($conn, $sql);
                   $r = mysqli_fetch_assoc($rs);
                   echo $r['TenSP'];
@@ -159,7 +157,7 @@
               ?>
 
               <tr>
-                <td colspan="4" align="right"><b>Tổng doanh thu: </b></td>
+                <td colspan="4" align="right"><b>Tổng : </b></td>
                 <td> <?=$tong?></td>
               </tr>
               

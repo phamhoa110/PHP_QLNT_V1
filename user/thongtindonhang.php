@@ -46,7 +46,7 @@ if(isset($_POST['vanchuyen'])){
                 	 <div class="row">
                 	 	<form action="" method="POST">
                 	 		<label>Họ và tên</label>
-                	 		<input type="text" name="hoten" required>  
+                	 		<input type="text" name="hoten"  required>  
                 	 		<br> 
                 	 		<label>Địa chỉ</label>
                 	 		<input type="text" name="diachi" required>  
@@ -72,7 +72,7 @@ if(isset($_POST['vanchuyen'])){
 
                                             <tr>
                                                 <th>STT</th>
-                                                <th>Mã sản phẩm</th>
+                                               <!--  <th>Mã sản phẩm</th> -->
                                                 <th>Tên sản phẩm</th>
                                                 <th>Hình ảnh</th>
                                                 <th>Số lượng</th>
@@ -93,7 +93,7 @@ if(isset($_POST['vanchuyen'])){
                                             ?>
                                                     <tr class="active-row">
                                                         <td> <?php echo $stt ?> </td>
-                                                        <td> <?php echo $cart_item['MaSP'] ?> </td>
+                                                       <!--  <td> <?php echo $cart_item['MaSP'] ?> </td> -->
                                                         <td> <?php echo $cart_item['TenSP'] ?> </td>
                                                         <td> <img src=" images/books/<?= $cart_item['Anh'] ?>" alt="image description"> </td>
                                                         <td>
@@ -121,10 +121,19 @@ if(isset($_POST['vanchuyen'])){
                                                 </tr>
                                             <?php } ?>
                                             <tr class="active-row">
-                                                <td colspan="6"><span style="font-size: 18px;">Tổng tiền</span></td>
+                                                <td colspan="4"><span style="font-size: 18px;">Tổng tiền</span></td>
                                                 <td>
                                                     <?php
-                                                        echo $tongall;
+                                                if (isset($_SESSION['cart'])) {
+                                                $tongall=0;
+                                                foreach ($_SESSION['cart'] as $cart_item) {
+                                                    $tong=$cart_item['soluong']*$cart_item['DonGia'];
+                                                    $tongall+=$tong;
+                                                   
+                                                }
+                                                 
+                                                echo $tongall;
+                                            }
                                                     ?>
                                                 </td>
                                             </tr>
@@ -134,6 +143,7 @@ if(isset($_POST['vanchuyen'])){
 
                                
                                 <a href="dathang.php"> <input type="submit" name="borrow" class="borrow" value="Thanh toán"></a>
+                                <a href="giohang.php" onclick="return confirm('Bạn có chắc chắn muốn hủy không?');"> <input type="submit" name="borrow" class="borrow" value="Hủy"></a>
                             </div>
                         </div>
 

@@ -137,7 +137,7 @@
                 <td><?php echo $row['TenDM']; ?></td>
 
                 <td width="14%;"><a href="edit_category.php?id=<?php echo $row['MaDM']; ?>" class="btn btn-primary btn-sml" >Sửa</a>
-                <a href="delete_category.php?id=<?php echo $row['MaDM']; ?>"class="btn btn-danger btn-sml">Xóa</a></td>
+                <a href="delete_category.php?id=<?php echo $row['MaDM']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');" class="btn btn-danger btn-sml">Xóa</a></td>
             </tr>
         <?php } ?>
             </tbody>

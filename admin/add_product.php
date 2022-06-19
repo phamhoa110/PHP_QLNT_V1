@@ -72,7 +72,11 @@
             if(isset($_POST["ncc"])) { $ncc = $_POST['ncc']; }
        
             if(isset($_POST["chitiet"])) { $chitiet = $_POST['chitiet']; }
-          
+            if($_POST['tensanpham']=='' || $_POST['anh']=='' || $_POST['madanhmuc']=='' || $_POST['soluong']=='' || $_POST['dongia']=='' || $_POST['chatlieu']=='' || $_POST['mausac']=='' || $_POST['kichthuoc']=='' || $_POST['trongluong']=='' ){
+            echo '<script>alert("Vui lòng nhập đầy đủ thông tin")</script>';
+            echo "<script>window.location.href='add_product.php';</script>";
+            die();
+          }
             //Code xử lý, insert dữ liệu vào table
             $anh = $_FILES['anh']['name'];
             $target = "../user/images/books/" . basename($anh);

@@ -140,7 +140,7 @@
                 <td><?php echo $row['DiaChi']; ?></td>
                 <td><?php echo $row['SDT']; ?></td>
                 <td width="14%;"><a href="edit_ncc.php?id=<?php echo $row['MaNCC']; ?>" class="btn btn-primary btn-sml" >Sửa</a>
-                <a href="delete_ncc.php?id=<?php echo $row['MaNCC']; ?>"class="btn btn-danger btn-sml">Xóa</a></td>
+                <a href="delete_ncc.php?id=<?php echo $row['MaNCC']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');" class="btn btn-danger btn-sml">Xóa</a></td>
             </tr>
         <?php } ?>
             </tbody>

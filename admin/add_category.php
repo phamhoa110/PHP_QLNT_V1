@@ -50,7 +50,11 @@
             if(isset($_POST["name"])) {
               $tenDM = $_POST['name'];
             }
-
+            if($_POST['name']=='' ){
+            echo '<script>alert("Vui lòng nhập đầy đủ thông tin")</script>';
+            echo "<script>window.location.href='add_category.php';</script>";
+            die();
+          }
             //Code xử lý, insert dữ liệu vào table
             $sql = "INSERT INTO danhmuc (TenDM) VALUES ('$tenDM')";
               

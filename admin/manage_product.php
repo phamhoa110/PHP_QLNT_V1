@@ -189,7 +189,7 @@
 
 
                   <td width="14%;"><a href="edit_product.php?id=<?php echo $row['MaSP']; ?>" class="btn btn-primary btn-sml">Sửa</a>
-                    <a href="delete_product.php?id=<?php echo $row['MaSP']; ?>" class="btn btn-danger btn-sml">Xóa</a>
+                    <a href="delete_product.php?id=<?php echo $row['MaSP']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa không?');" class="btn btn-danger btn-sml">Xóa</a>
                   </td>
                 </tr>
 

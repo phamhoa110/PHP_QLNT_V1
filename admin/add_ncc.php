@@ -53,6 +53,11 @@
             if(isset($_POST["diachi"])) {
               $diachi = $_POST['diachi'];
             }
+            if($_POST['tenNCC']=='' || $_POST['diachi']==''){
+            echo '<script>alert("Vui lòng nhập đầy đủ thông tin")</script>';
+            echo "<script>window.location.href='add_ncc.php';</script>";
+            die();
+          }
             // if(isset($_POST["sdt"])) {
             //   $sdt = (preg_match('/((09|03|07|08|05)+([0-9]{8})\b)/',$_POST['sdt']));
             // }

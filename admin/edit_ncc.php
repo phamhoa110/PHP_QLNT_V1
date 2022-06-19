@@ -85,6 +85,10 @@
            if(isset($_POST['sdt'])){
              $sdt = $_POST['sdt'];
            }
+           if($_POST['ten']=='' || $_POST['diachi']=='' || $_POST['sdt']==''){
+            echo '<script>alert("Vui lòng nhập đầy đủ thông tin")</script>';
+            die();
+          }
            
            $sql = "UPDATE nhacungcap SET  TenNCC ='$tenNCC',DiaChi='$diachi',SDT='$sdt' WHERE MaNCC='$id'";
            mysqli_query($conn, $sql);

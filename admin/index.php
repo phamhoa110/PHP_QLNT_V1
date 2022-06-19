@@ -102,7 +102,7 @@ if(!isset($_SESSION['dangnhap1'])){
               <div class="icon">
                 <i class="fas fa-book"></i>
               </div>
-              <a href="manage_book.php" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="manage_product.php" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

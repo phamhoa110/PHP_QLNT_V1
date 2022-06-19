@@ -142,7 +142,7 @@
                 <td><?php echo $row['email']; ?></td>
                 <td><?php echo $row['phonenumber']; ?></td>
                 <!-- <td width="14%;"><a href="edit_author.php?id=" class="btn btn-primary btn-sml" >Sửa</a> -->
-               <td><a href="delete_user.php?id=<?php echo $row['id']; ?>"class="btn btn-danger btn-sml" onclick="return confirm('Xóa?');">Xóa</a></td>
+               <!-- <td><a href="delete_user.php?id=<?php echo $row['id']; ?>"class="btn btn-danger btn-sml" onclick="return confirm('Xóa?');">Xóa</a></td> -->
             </tr>
         <?php } ?>
             </tbody>

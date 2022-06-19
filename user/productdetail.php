@@ -64,7 +64,7 @@ $query_chitiet = mysqli_query($conn, $sql_chitiet);
 														<div class="tg-booktitle">
 															<h3>Giá: <?php echo $row['DonGia'] ?></h3>
 														</div>
-														<input type="number" name="soluong" value="1">
+														
 														<input type="hidden" name="MaSP" value="<?= $row['MaSP'] ?>">
 														<span class="tg-bookwriter">Kích thước: <a href="javascript:void(0);"><?php echo $row['KichThuoc'] ?></a></span>
 														<span class="tg-bookwriter">Màu sắc:

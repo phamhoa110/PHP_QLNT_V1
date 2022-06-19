@@ -80,7 +80,7 @@
             ?>  
               <option <?php
                 if($row['MaDM'] == $rowDM['MaDM']){
-                  echo 'selected = selected';
+                  echo 'selected = "selected"';
                 }
               ?>value="<?=$rowDM['MaDM']?>"><?=$rowDM['TenDM']?></option>
                <?php } ?> 
@@ -105,7 +105,7 @@
             ?>  
               <option <?php
                 if($row['MaMau'] = $rowMau['MaMau']){
-                  echo 'selected';
+                  echo 'selected="selected"';
                 }
               ?> value="<?=$rowMau['MaMau']?>"><?=$rowMau['TenMau']?></option>
                <?php } ?> 

@@ -4,6 +4,7 @@ include("config.php");
 //them
 if(isset($_GET['cong'])){
     $id=$_GET['cong'];
+
     foreach($_SESSION['cart'] as $cart_item){
         if($cart_item['MaSP']!=$id){
             $product[] =  array('TenSP'=>$cart_item['TenSP'],'Anh'=>$cart_item['Anh'],'soluong'=>$cart_item['soluong'],'DonGia'=>$cart_item['DonGia'],'MaSP'=>$cart_item['MaSP']);
@@ -11,8 +12,12 @@ if(isset($_GET['cong'])){
 
         }
         else{
+            $sql = "select SoLuong from sanpham where MaSP = '$id'";
+            $rs = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($rs);
             $tangsl=$cart_item['soluong']+1;
-            if($cart_item['soluong']<9){
+
+            if($cart_item['soluong']<$row['SoLuong']){
                 $product[] =  array('TenSP'=>$cart_item['TenSP'],'Anh'=>$cart_item['Anh'],'soluong'=>$tangsl,'DonGia'=>$cart_item['DonGia'],'MaSP'=>$cart_item['MaSP']);
             }
             else{
@@ -35,14 +40,16 @@ if(isset($_GET['tru'])){
         }
         else{
             $trusl=$cart_item['soluong']-1;
-            if($cart_item['soluong']>1){
+            if($trusl>=1){
                 $product[] =  array('TenSP'=>$cart_item['TenSP'],'Anh'=>$cart_item['Anh'],'soluong'=>$trusl,'DonGia'=>$cart_item['DonGia'],'MaSP'=>$cart_item['MaSP']);
             }
             else{
-                $product[] =  array('TenSP'=>$cart_item['TenSP'],'Anh'=>$cart_item['Anh'],'soluong'=>$cart_item['soluong'],'DonGia'=>$cart_item['DonGia'],'MaSP'=>$cart_item['MaSP']);
+                // $product[] =  array('TenSP'=>$cart_item['TenSP'],'Anh'=>$cart_item['Anh'],'soluong'=>$cart_item['soluong'],'DonGia'=>$cart_item['DonGia'],'MaSP'=>$cart_item['MaSP']);
+                unset($_SESSION['cart']);
             }
              $_SESSION['cart']=$product;
         }
+       
 
     }
     echo "<script>window.location.href='giohang.php';</script>";

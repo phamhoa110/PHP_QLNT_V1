@@ -44,7 +44,7 @@ include("header1.php");
 
                                             <tr>
                                                 <th>STT</th>
-                                                <th>Mã sản phẩm</th>
+                                              <!--   <th>Mã sản phẩm</th> -->
                                                 <th>Tên sản phẩm</th>
                                                 <th>Hình ảnh</th>
                                                 <th>Số lượng</th>
@@ -66,7 +66,7 @@ include("header1.php");
                                             ?>
                                                     <tr class="active-row">
                                                         <td> <?php echo $stt ?> </td>
-                                                        <td> <?php echo $cart_item['MaSP'] ?> </td>
+                                                       <!--  <td> <?php echo $cart_item['MaSP'] ?> </td> -->
                                                         <td> <?php echo $cart_item['TenSP'] ?> </td>
                                                         <td> <img src=" images/books/<?= $cart_item['Anh'] ?>" alt="image description"> </td>
                                                         <td>

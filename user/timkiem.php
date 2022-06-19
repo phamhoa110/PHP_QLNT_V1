@@ -46,7 +46,7 @@ $query_tk =  mysqli_query($conn, $sql_pro);
 										<h3><a href="productdetail.php?MaSP=<?= $row['MaSP'] ?>"> <?php echo $row['TenSP'] ?> </a></h3>
 									</div>
 									<span class="tg-bookwriter"><a href="javascript:void(0);"> <?php echo $row['DonGia'] ?></a></span>
-									<input type="number" name="soluong" value="1">
+								
 									<input type="hidden" name="MaSP" value="<?= $row['MaSP'] ?>">
 
 									<a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">

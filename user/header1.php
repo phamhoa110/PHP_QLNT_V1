@@ -146,6 +146,9 @@ $query_dm = mysqli_query($conn, $sql_dm);
 								<li class=" current-menu-item">
 									<a href="index1.php">Trang chủ</a>
 								</li>
+								<li class=" current-menu-item">
+									<a href="gioithieu.php">Giới thiệu</a>
+								</li>
 								<li class="menu-item-has-children menu-item-has-mega-menu">
 									<a href="javascript:void(0);">Danh mục sản phẩm</a>
 									<div class="mega-menu">

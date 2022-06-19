@@ -18,7 +18,7 @@
 <div class="login-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../login.php" class="h1"><b>HaUI</b>Library</a>
+      <a href="../../login.php" class="h1"><b>Quan ly noi that</b></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Quên mật khẩu? Thay đổi mật khẩu.</p>

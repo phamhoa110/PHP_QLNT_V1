@@ -1,19 +1,24 @@
 <?php
 	include("config.php");
-	if (!isset($_GET['id'])) {
-
-		$sql_pro = "SELECT* FROM sanpham order by DonGia";
-
-	 } else {
-
-		$id = $_GET['id'];
-		$sql_pro = " SELECT* FROM sanpham  where MaDM = '$id' order by DonGia asc";
-		
-	 }
+    include("header1.php");
 	
-	$a = mysqli_query($conn, $sql_pro);
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+        $start = $_GET['start'];
+        $end = $_GET['end'];
+        if($end == 0){
+            $sql_pro = "select * from sanpham where DonGia >= '$start' and MaDM = '$id'";
+        } else{
+            $sql_pro = "select * from sanpham where DonGia >= '$start' and DonGia <= '$end' and MaDM = '$id'";
+        }
+        
+        $query_pro = mysqli_query($conn, $sql_pro);
+    }
+	
+   $query_pro = mysqli_query($conn, $sql_pro);
 
-	$query_pro = mysqli_query($conn, $sql_pro);
+
+	
 ?>
 
 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 pull-right">
@@ -65,3 +70,6 @@
 		</div>
 	</div>
 </div>
+<?php
+	include("footer.php");
+?>

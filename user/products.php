@@ -1,8 +1,12 @@
 <?php
 require 'config.php';
 include("header1.php");
+$id = $_GET['id'];
 $sql_danhmuc = "SELECT * FROM danhmuc  ORDER BY MaDM DESC";
 $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
+
+$sql_mocgia = "select * from mocgia ";
+$query_mocgia = mysqli_query($conn, $sql_mocgia);
 ?>
 
 <!doctype html>
@@ -46,13 +50,30 @@ $query_danhmuc = mysqli_query($conn, $sql_danhmuc);
 
 									<div class="tg-widget tg-catagories">
 										<div class="tg-widgettitle">
-											<h3>Danh mục ngành sản phẩm</h3>
+											<h3>Danh mục sản phẩm</h3>
 										</div>
 										<div class="tg-widgetcontent">
 											<ul>
 												<?php while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) { ?>
 													<li><a href="products.php?main=book&id=<?php echo $row_danhmuc['MaDM'] ?>">
 															<?= $row_danhmuc['TenDM'] ?>
+														</a></li>
+												<?php } ?>
+											</ul>
+										</div>
+									</div>
+
+									<div class="tg-widget tg-catagories">
+										<div class="tg-widgettitle">
+											<h3>Mốc giá</h3>
+										</div>
+										<div class="tg-widgetcontent">
+											<ul>
+												<?php while ($row_mocgia = mysqli_fetch_array($query_mocgia)) { ?>
+													<li><a href="timkiemtheogia.php?start=<?=$row_mocgia['start']?>&end=<?=$row_mocgia['end']?>&id=<?=$id?>">
+															
+																<?= $row_mocgia['end'] == 0 ? "Từ ".$row_mocgia['start'] : $row_mocgia['start'].' - '.$row_mocgia['end'] ?>
+															
 														</a></li>
 												<?php } ?>
 											</ul>
